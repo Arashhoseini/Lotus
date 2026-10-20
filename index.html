@@ -1,1 +1,197 @@
 
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f5eee4">
+<title>LOTUS | فروشگاه لوتوس</title>
+<meta name="description" content="فروشگاه لوکس روتختی و کالای خواب لوتوس">
+
+<style>
+:root {
+  --cream: #f7f2eb;
+  --beige: #e8d9c7;
+  --white: #fffdf9;
+  --brown: #49382c;
+  --gold: #b08a5a;
+  --muted: #857565;
+  --border: #e6dbce;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Tahoma, Arial, sans-serif;
+  background: var(--cream);
+  color: var(--brown);
+  line-height: 1.8;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button, input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  width: 92%;
+  max-width: 1150px;
+  margin: auto;
+}
+
+.announcement {
+  background: var(--brown);
+  color: #fff7ed;
+  text-align: center;
+  padding: 7px;
+  font-size: 11px;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(247,242,235,.96);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-symbol {
+  width: 45px;
+  height: 45px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Georgia, serif;
+  font-size: 26px;
+  color: var(--gold);
+}
+
+.logo-name {
+  font-family: Georgia, serif;
+  font-size: 21px;
+  letter-spacing: 4px;
+  font-weight: bold;
+}
+
+.logo-subtitle {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  font-size: 12px;
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+}
+
+.nav-actions {
+  display: flex;
+  gap: 7px;
+}
+
+.nav-button {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--brown);
+  font-size: 18px;
+}
+
+@media (max-width: 650px) {
+  .nav-links {
+    display: none;
+  }
+
+  .logo-name {
+    font-size: 18px;
+  }
+
+  .logo-symbol {
+    width: 40px;
+    height: 40px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="announcement">
+  زیبایی در جزئیات، آرامش در خانه | LOTUS
+</div>
+
+<header>
+  <div class="container navbar">
+
+    <a href="#home" class="logo">
+      <span class="logo-symbol">L</span>
+
+      <span>
+        <span class="logo-name">LOTUS</span>
+        <span class="logo-subtitle">HOME & BEDDING</span>
+      </span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#home">خانه</a>
+      <a href="#categories">دسته‌بندی‌ها</a>
+      <a href="#products">محصولات</a>
+      <a href="#about">درباره لوتوس</a>
+      <a href="#contact">تماس با ما</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="nav-button"
+        onclick="document.getElementById('search').focus()"
+        aria-label="جست‌وجو">⌕</button>
+
+      <button class="nav-button"
+        onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})"
+        aria-label="مشاهده محصولات">♡</button>
+    </div>
+
+  </div>
+</header>
+</body>
+</html>
