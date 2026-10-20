@@ -4,9 +4,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#f5eee4">
+<meta name="theme-color" content="#f7f2eb">
+<meta name="description" content="لوتوس؛ فروشگاه روتختی، کالای خواب و اکسسوری اتاق خواب">
 <title>LOTUS | فروشگاه لوتوس</title>
-<meta name="description" content="فروشگاه لوکس روتختی و کالای خواب لوتوس">
 
 <style>
 :root {
@@ -25,9 +25,7 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   font-family: Tahoma, Arial, sans-serif;
@@ -41,17 +39,20 @@ a {
   color: inherit;
 }
 
-button, input {
+button, input, select {
   font: inherit;
 }
 
-button {
-  cursor: pointer;
+button { cursor: pointer; }
+
+img {
+  max-width: 100%;
+  display: block;
 }
 
 .container {
   width: 92%;
-  max-width: 1150px;
+  max-width: 1180px;
   margin: auto;
 }
 
@@ -59,16 +60,17 @@ button {
   background: var(--brown);
   color: #fff7ed;
   text-align: center;
-  padding: 7px;
+  padding: 7px 12px;
   font-size: 11px;
 }
 
 header {
   position: sticky;
   top: 0;
-  z-index: 100;
-  background: rgba(247,242,235,.96);
+  z-index: 20;
+  background: rgba(247,242,235,.97);
   border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
 }
 
 .navbar {
@@ -76,13 +78,14 @@ header {
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  padding: 14px 0;
+  padding: 13px 0;
 }
 
 .logo {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-shrink: 0;
 }
 
 .logo-symbol {
@@ -99,10 +102,12 @@ header {
 }
 
 .logo-name {
+  display: block;
   font-family: Georgia, serif;
   font-size: 21px;
   letter-spacing: 4px;
   font-weight: bold;
+  line-height: 1.4;
 }
 
 .logo-subtitle {
@@ -115,13 +120,11 @@ header {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 20px;
   font-size: 12px;
 }
 
-.nav-links a:hover {
-  color: var(--gold);
-}
+.nav-links a:hover { color: var(--gold); }
 
 .nav-actions {
   display: flex;
@@ -138,19 +141,593 @@ header {
   font-size: 18px;
 }
 
+.cart-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold);
+  color: white;
+  border-radius: 50%;
+  min-width: 18px;
+  height: 18px;
+  font-size: 10px;
+  margin-right: 2px;
+}
+
+.hero { padding: 32px 0 25px; }
+
+.hero-box {
+  min-height: 410px;
+  border-radius: 7px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 35px;
+  color: white;
+  background:
+    linear-gradient(90deg, rgba(45,32,24,.08), rgba(45,32,24,.78)),
+    url("https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1600&q=85")
+    center/cover;
+}
+
+.hero-content { max-width: 460px; }
+
+.hero-tag {
+  color: #f3d5a7;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.hero h1 {
+  font-size: clamp(27px, 5vw, 45px);
+  line-height: 1.7;
+  margin: 10px 0;
+}
+
+.hero p {
+  font-size: 14px;
+  color: #fff8ef;
+  margin-bottom: 22px;
+}
+
+.primary-button {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  background: var(--gold);
+  color: white;
+  padding: 11px 23px;
+  border-radius: 3px;
+  font-size: 13px;
+  transition: .2s;
+}
+
+.primary-button:hover {
+  background: var(--brown);
+  border-color: var(--brown);
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding: 15px 0 28px;
+}
+
+.feature {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 16px 10px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.feature span {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.section { padding: 30px 0; }
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.section-heading small {
+  color: var(--gold);
+  letter-spacing: 2px;
+  font-size: 10px;
+}
+
+.section-heading h2 {
+  font-size: 25px;
+  margin-top: 4px;
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.category-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  text-align: center;
+  padding: 22px 8px;
+  transition: .2s;
+}
+
+.category-card:hover,
+.category-card.active {
+  border-color: var(--gold);
+  background: #f0e4d5;
+  transform: translateY(-2px);
+}
+
+.category-icon {
+  font-size: 30px;
+  margin-bottom: 7px;
+}
+
+.category-card h3 {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.shop-toolbar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.search-box {
+  flex: 1;
+  min-width: 180px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 10px 13px;
+}
+
+.search-box input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--brown);
+  font-size: 13px;
+}
+
+.filter-select {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 10px;
+  color: var(--brown);
+  font-size: 12px;
+  max-width: 100%;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.product-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: .25s;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(73,56,44,.08);
+}
+
+.product-image {
+  position: relative;
+  background: #eee5da;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  aspect-ratio: 4 / 4.3;
+  object-fit: cover;
+  transition: transform .4s;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.04);
+}
+
+.product-label {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--white);
+  color: var(--brown);
+  padding: 4px 8px;
+  font-size: 10px;
+}
+
+.product-info { padding: 13px; }
+
+.product-category {
+  color: var(--gold);
+  font-size: 10px;
+}
+
+.product-info h3 {
+  font-size: 13px;
+  margin: 4px 0 7px;
+  min-height: 28px;
+}
+
+.product-description {
+  font-size: 11px;
+  color: var(--muted);
+  min-height: 38px;
+}
+
+.product-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 7px;
+  margin-top: 12px;
+}
+
+.price {
+  font-size: 13px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.add-button {
+  border: none;
+  background: var(--brown);
+  color: white;
+  padding: 8px 11px;
+  font-size: 11px;
+}
+
+.add-button:hover { background: var(--gold); }
+
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px 10px;
+  color: var(--muted);
+  background: var(--white);
+}
+
+.promo {
+  background: #e9ddce;
+  padding: 35px 20px;
+  text-align: center;
+  margin: 25px auto;
+}
+
+.promo h2 { font-size: 23px; }
+
+.promo p {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 8px 0 17px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  align-items: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-height: 390px;
+  object-fit: cover;
+}
+
+.about-text h2 {
+  font-size: 25px;
+  margin-bottom: 12px;
+}
+
+.about-text p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+footer {
+  margin-top: 40px;
+  background: var(--brown);
+  color: #fff7ed;
+  padding: 35px 0 18px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 25px;
+}
+
+footer h3 {
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+footer p, footer a {
+  color: #e7d9ca;
+  font-size: 12px;
+}
+
+.footer-links {
+  display: grid;
+  gap: 7px;
+}
+
+.footer-links a:hover { color: #eac99b; }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.15);
+  margin-top: 25px;
+  padding-top: 15px;
+  text-align: center;
+  font-size: 10px;
+  color: #d4c2af;
+}
+
+.cart-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.4);
+  z-index: 40;
+}
+
+.cart-overlay.open { display: block; }
+
+.cart-panel {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: min(420px, 100%);
+  background: var(--white);
+  z-index: 41;
+  padding: 20px;
+  transform: translateX(-105%);
+  transition: transform .25s;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-panel.open { transform: translateX(0); }
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border);
+}
+
+.close-button {
+  border: 1px solid var(--border);
+  background: transparent;
+  padding: 5px 11px;
+  color: var(--brown);
+}
+
+.cart-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 0;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 65px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.cart-item img {
+  width: 65px;
+  height: 65px;
+  object-fit: cover;
+}
+
+.cart-item h4 { font-size: 12px; }
+
+.cart-item p {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 5px;
+}
+
+.quantity-controls button {
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--border);
+  background: var(--cream);
+  color: var(--brown);
+}
+
+.remove-button {
+  border: none;
+  background: transparent;
+  color: #a33;
+  font-size: 11px;
+}
+
+.cart-footer {
+  border-top: 1px solid var(--border);
+  padding-top: 15px;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 13px;
+  font-weight: bold;
+}
+
+.full-button {
+  width: 100%;
+  text-align: center;
+  display: block;
+  border: none;
+  padding: 12px;
+  background: var(--brown);
+  color: white;
+  font-size: 13px;
+}
+
+.full-button:hover { background: var(--gold); }
+
+.cart-empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 35px 10px;
+  font-size: 13px;
+}
+
+.checkout-form {
+  display: none;
+  position: fixed;
+  z-index: 50;
+  inset: 0;
+  overflow-y: auto;
+  background: rgba(0,0,0,.5);
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkout-form.open { display: flex; }
+
+.checkout-box {
+  background: var(--white);
+  padding: 23px;
+  width: 100%;
+  max-width: 440px;
+  border-radius: 5px;
+}
+
+.checkout-box h2 {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.checkout-box > p {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 15px;
+}
+
+.form-field { margin-bottom: 12px; }
+
+.form-field label {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.form-field input,
+.form-field textarea,
+.form-field select {
+  width: 100%;
+  border: 1px solid var(--border);
+  background: white;
+  padding: 10px;
+  outline-color: var(--gold);
+  font-size: 13px;
+  color: var(--brown);
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 75px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.form-actions button { flex: 1; }
+
+.secondary-button {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--brown);
+  padding: 11px;
+}
+
+.notice {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+@media (max-width: 850px) {
+  .nav-links { gap: 10px; }
+  .nav-links a { font-size: 11px; }
+  .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
 @media (max-width: 650px) {
-  .nav-links {
-    display: none;
-  }
+  .nav-links { display: none; }
+  .logo-name { font-size: 18px; }
+  .logo-symbol { width: 40px; height: 40px; }
+  .hero { padding-top: 20px; }
+  .hero-box { min-height: 350px; padding: 22px; }
+  .hero h1 { font-size: 27px; }
+  .features { gap: 7px; }
+  .feature { font-size: 10px; padding: 12px 5px; }
+  .categories { grid-template-columns: repeat(2, 1fr); }
+  .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .product-info { padding: 10px; }
+  .product-info h3 { font-size: 12px; }
+  .product-description { font-size: 10px; }
+  .product-bottom { flex-direction: column; align-items: stretch; }
+  .add-button { width: 100%; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-image { order: 2; }
+  .footer-grid { grid-template-columns: 1fr; gap: 20px; }
+  .shop-toolbar { align-items: stretch; }
+  .filter-select { width: 100%; }
+}
 
-  .logo-name {
-    font-size: 18px;
-  }
-
-  .logo-symbol {
-    width: 40px;
-    height: 40px;
-  }
+@media (max-width: 360px) {
+  .product-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -158,15 +735,13 @@ header {
 <body>
 
 <div class="announcement">
-  زیبایی در جزئیات، آرامش در خانه | LOTUS
+  زیبایی در جزئیات، آرامش در خانه | ارسال سفارش‌های لوتوس
 </div>
 
 <header>
   <div class="container navbar">
-
-    <a href="#home" class="logo">
+    <a href="#home" class="logo" aria-label="صفحه اصلی لوتوس">
       <span class="logo-symbol">L</span>
-
       <span>
         <span class="logo-name">LOTUS</span>
         <span class="logo-subtitle">HOME & BEDDING</span>
@@ -182,16 +757,581 @@ header {
     </nav>
 
     <div class="nav-actions">
-      <button class="nav-button"
-        onclick="document.getElementById('search').focus()"
-        aria-label="جست‌وجو">⌕</button>
-
-      <button class="nav-button"
-        onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})"
-        aria-label="مشاهده محصولات">♡</button>
+      <button class="nav-button" onclick="focusSearch()" aria-label="جست‌وجو">⌕</button>
+      <button class="nav-button" onclick="openCart()" aria-label="سبد خرید">
+        ♡ <span class="cart-count" id="cartCount">0</span>
+      </button>
     </div>
-
   </div>
 </header>
+
+<main>
+  <section class="hero container" id="home">
+    <div class="hero-box">
+      <div class="hero-content">
+        <span class="hero-tag">THE ART OF COMFORT</span>
+        <h1>زیبایی را به اتاق خواب خود بیاورید</h1>
+        <p>
+          مجموعه‌ای از روتختی‌های زیبا و اکسسوری‌های خاص
+          برای خانه‌ای گرم، آرام و دلنشین.
+        </p>
+        <a href="#products" class="primary-button">مشاهده محصولات</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container features">
+    <div class="feature"><span>✧</span>انتخاب‌های زیبا و خاص</div>
+    <div class="feature"><span>♡</span>توجه به راحتی و کیفیت</div>
+    <div class="feature"><span>❋</span>تجربه خرید آسان</div>
+  </section>
+
+  <section class="section container" id="categories">
+    <div class="section-heading">
+      <small>EXPLORE LOTUS</small>
+      <h2>دسته‌بندی محصولات</h2>
+      <p>برای پیدا کردن کالای مورد علاقه‌ات انتخاب کن</p>
+    </div>
+
+    <div class="categories">
+      <button class="category-card" onclick="chooseCategory('bedding')">
+        <div class="category-icon">🛏️</div>
+        <h3>روتختی و لحاف</h3>
+      </button>
+      <button class="category-card" onclick="chooseCategory('sheets')">
+        <div class="category-icon">🧺</div>
+        <h3>ملحفه و روبالشی</h3>
+      </button>
+      <button class="category-card" onclick="chooseCategory('decor')">
+        <div class="category-icon">🪟</div>
+        <h3>دکور اتاق خواب</h3>
+      </button>
+      <button class="category-card" onclick="chooseCategory('accessories')">
+        <div class="category-icon">🕯️</div>
+        <h3>اکسسوری و کوسن</h3>
+      </button>
+    </div>
+  </section>
+
+  <section class="section container" id="products">
+    <div class="section-heading">
+      <small>OUR COLLECTION</small>
+      <h2>محصولات لوتوس</h2>
+      <p>محصول دلخواهت را پیدا کن و به سبد خرید اضافه کن</p>
+    </div>
+
+    <div class="shop-toolbar">
+      <label class="search-box">
+        <span>⌕</span>
+        <input id="search" type="search" placeholder="جست‌وجوی محصول..." oninput="renderProducts()">
+      </label>
+
+      <select id="categoryFilter" class="filter-select" onchange="renderProducts()">
+        <option value="all">همه دسته‌بندی‌ها</option>
+        <option value="bedding">روتختی و لحاف</option>
+        <option value="sheets">ملحفه و روبالشی</option>
+        <option value="decor">دکور اتاق خواب</option>
+        <option value="accessories">اکسسوری و کوسن</option>
+      </select>
+
+      <select id="sortFilter" class="filter-select" onchange="renderProducts()">
+        <option value="default">مرتب‌سازی پیش‌فرض</option>
+        <option value="low">ارزان‌ترین</option>
+        <option value="high">گران‌ترین</option>
+      </select>
+    </div>
+
+    <div class="product-grid" id="productGrid"></div>
+  </section>
+
+  <section class="container promo">
+    <h2>خانه‌ای زیباتر، با انتخابی از لوتوس</h2>
+    <p>جزئیات کوچک می‌توانند حال‌وهوای اتاق خواب شما را تغییر دهند.</p>
+    <a href="#products" class="primary-button">خرید و مشاهده محصولات</a>
+  </section>
+
+  <section class="section container" id="about">
+    <div class="about-grid">
+      <div class="about-text">
+        <small style="color:var(--gold);letter-spacing:2px">ABOUT LOTUS</small>
+        <h2>داستان لوتوس</h2>
+        <p>
+          لوتوس با الهام از زیبایی، آرامش و سادگی طراحی شده است.
+          هدف ما فراهم کردن تجربه‌ای دلنشین برای انتخاب روتختی،
+          کالای خواب و اکسسوری‌های اتاق خواب است.
+        </p>
+        <p>
+          محصولات این صفحه نمونه اولیه فروشگاه هستند. مشخصات،
+          قیمت‌ها و موجودی باید پیش از فروش واقعی بررسی و به‌روز شوند.
+        </p>
+        <a href="#products" class="primary-button">دیدن مجموعه</a>
+      </div>
+      <div class="about-image">
+        <img
+          src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=85"
+          alt="دکوراسیون آرام و مینیمال خانه"
+          loading="lazy">
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo" style="margin-bottom:15px">
+          <span class="logo-symbol" style="color:#eac99b;border-color:#eac99b">L</span>
+          <span>
+            <span class="logo-name" style="color:white">LOTUS</span>
+            <span class="logo-subtitle" style="color:#d4c2af">HOME & BEDDING</span>
+          </span>
+        </div>
+        <p>زیبایی در جزئیات، آرامش در خانه.</p>
+      </div>
+
+      <div>
+        <h3>دسترسی سریع</h3>
+        <div class="footer-links">
+          <a href="#home">صفحه اصلی</a>
+          <a href="#categories">دسته‌بندی‌ها</a>
+          <a href="#products">محصولات</a>
+          <a href="#about">درباره ما</a>
+        </div>
+      </div>
+
+      <div>
+        <h3>ارتباط با لوتوس</h3>
+        <p>برای پرسش درباره محصولات و سفارش، از طریق واتساپ با ما تماس بگیرید.</p>
+        <p style="margin-top:10px">شماره تماس فروشگاه را در تنظیمات کد وارد کنید.</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © <span id="year"></span> LOTUS — تمامی حقوق محفوظ است.
+    </div>
+  </div>
+</footer>
+
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+<aside class="cart-panel" id="cartPanel" aria-label="سبد خرید">
+  <div class="cart-header">
+    <h2 style="font-size:18px">سبد خرید شما</h2>
+    <button class="close-button" onclick="closeCart()">بستن ✕</button>
+  </div>
+
+  <div class="cart-items" id="cartItems"></div>
+
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>جمع کل</span>
+      <span id="cartTotal">۰ تومان</span>
+    </div>
+    <button class="full-button" onclick="startCheckout()">ثبت سفارش</button>
+    <p class="notice">قیمت‌ها نمونه هستند و قبل از فروش واقعی باید بررسی شوند.</p>
+  </div>
+</aside>
+
+<div class="checkout-form" id="checkoutModal">
+  <div class="checkout-box">
+    <h2>ثبت سفارش لوتوس</h2>
+    <p>اطلاعات تماس را وارد کن تا سفارش در واتساپ آماده ارسال شود.</p>
+
+    <form id="orderForm">
+      <div class="form-field">
+        <label for="customerName">نام و نام خانوادگی</label>
+        <input id="customerName" name="name" required maxlength="100" placeholder="نام شما">
+      </div>
+
+      <div class="form-field">
+        <label for="customerPhone">شماره تماس</label>
+        <input id="customerPhone" name="phone" required type="tel" maxlength="30" placeholder="شماره تماس">
+      </div>
+
+      <div class="form-field">
+        <label for="customerAddress">آدرس تحویل</label>
+        <textarea id="customerAddress" name="address" required maxlength="500" placeholder="آدرس کامل تحویل"></textarea>
+      </div>
+
+      <div class="form-field">
+        <label for="customerNote">توضیحات (اختیاری)</label>
+        <textarea id="customerNote" name="note" maxlength="500" placeholder="رنگ، سایز یا توضیحات سفارش"></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="full-button">ارسال سفارش به واتساپ</button>
+        <button type="button" class="secondary-button" onclick="closeCheckout()">انصراف</button>
+      </div>
+    </form>
+    <p class="notice">با زدن دکمه، واتساپ باز می‌شود. سفارش تا زمان تأیید فروشگاه قطعی نیست.</p>
+  </div>
+</div>
+
+<script>
+/*
+  تنظیمات فروشگاه:
+  ۱. شماره واتساپ را با کد کشور وارد کن؛ فقط عدد، بدون + و فاصله.
+  ۲. قیمت‌ها نمونه هستند و باید با قیمت واقعی جایگزین شوند.
+*/
+const WHATSAPP_NUMBER = "491234567890";
+
+const products = [
+  {
+    id: 1,
+    name: "ست روتختی کرم کلاسیک",
+    category: "bedding",
+    categoryName: "روتختی و لحاف",
+    price: 2450000,
+    label: "محبوب",
+    description: "طراحی ساده و شیک برای اتاق خوابی آرام",
+    image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id: 2,
+    name: "ست روتختی بژ لوکس",
+    category: "bedding",
+    categoryName: "روتختی و لحاف",
+    price: 2890000,
+    label: "ویژه",
+    description: "ترکیب رنگ گرم با ظاهر مینیمال",
+    image: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id: 3,
+    name: "روتختی سفید مینیمال",
+    category: "bedding",
+    categoryName: "روتختی و لحاف",
+    price: 2190000,
+    label: "",
+    description: "انتخابی روشن برای دکوراسیون مدرن",
+    image: "https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id: 4,
+    name: "ست ملحفه لطیف",
+    category: "sheets",
+    categoryName: "ملحفه و روبالشی",
+    price: 890000,
+    label: "",
+    description: "مناسب برای تکمیل کالای خواب",
+    image: "https://images.unsplash.com/photo-1631049552057-403cdb8f0658?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id: 5,
+    name: "روبالشی دوتایی کرم",
+    category: "sheets",
+    categoryName: "ملحفه و روبالشی",
+    price: 320000,
+    label: "پرفروش",
+    description: "هماهنگ با دکوراسیون‌های گرم",
+    image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id: 6,
+    name: "کوسن دکوراتیو بژ",
+    category: "accessories",
+    categoryName: "اکسسوری و کوسن",
+    price: 280000,
+    label: "",
+    description: "جزئیاتی کوچک برای تغییری زیبا",
+    image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id: 7,
+    name: "چراغ کنار تخت",
+    category: "accessories",
+    categoryName: "اکسسوری و کوسن",
+    price: 760000,
+    label: "جدید",
+    description: "نور ملایم برای فضایی دلنشین",
+    image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id: 8,
+    name: "دکور گلدان مینیمال",
+    category: "decor",
+    categoryName: "دکور اتاق خواب",
+    price: 410000,
+    label: "",
+    description: "مناسب برای میز کنار تخت و قفسه",
+    image: "https://images.unsplash.com/photo-1490312278390-ab64016e0aa9?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id: 9,
+    name: "ست روتختی طوسی روشن",
+    category: "bedding",
+    categoryName: "روتختی و لحاف",
+    price: 2350000,
+    label: "",
+    description: "رنگی آرام برای اتاق خواب مدرن",
+    image: "https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id: 10,
+    name: "پتو سبک و نرم",
+    category: "bedding",
+    categoryName: "روتختی و لحاف",
+    price: 950000,
+    label: "",
+    description: "برای استراحت و استفاده روزمره",
+    image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id: 11,
+    name: "ملحفه ساده سفید",
+    category: "sheets",
+    categoryName: "ملحفه و روبالشی",
+    price: 590000,
+    label: "",
+    description: "سبک و هماهنگ با رنگ‌های مختلف",
+    image: "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id: 12,
+    name: "تابلو دکوراتیو اتاق",
+    category: "decor",
+    categoryName: "دکور اتاق خواب",
+    price: 520000,
+    label: "ویژه",
+    description: "برای کامل کردن گوشه‌ای از خانه",
+    image: "https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=700&q=80"
+  }
+];
+
+let cart = [];
+
+try {
+  const savedCart = localStorage.getItem("lotusCart");
+  if (savedCart) {
+    const parsed = JSON.parse(savedCart);
+    if (Array.isArray(parsed)) {
+      cart = parsed.filter(item =>
+        products.some(product => product.id === item.id) &&
+        Number.isInteger(item.qty) && item.qty > 0
+      );
+    }
+  }
+} catch (error) {
+  cart = [];
+}
+
+const formatPrice = value =>
+  new Intl.NumberFormat("fa-IR").format(value) + " تومان";
+
+function saveCart() {
+  try {
+    localStorage.setItem("lotusCart", JSON.stringify(cart));
+  } catch (error) {
+    // اگر ذخیره‌سازی در مرورگر در دسترس نباشد، سبد در همین صفحه کار می‌کند.
+  }
+}
+
+function renderProducts() {
+  const grid = document.getElementById("productGrid");
+  const query = document.getElementById("search").value.trim().toLowerCase();
+  const category = document.getElementById("categoryFilter").value;
+  const sort = document.getElementById("sortFilter").value;
+
+  let list = products.filter(product => {
+    const matchesCategory = category === "all" || product.category === category;
+    const text = (product.name + " " + product.description + " " + product.categoryName).toLowerCase();
+    const matchesSearch = text.includes(query);
+    return matchesCategory && matchesSearch;
+  });
+
+  if (sort === "low") list.sort((a, b) => a.price - b.price);
+  if (sort === "high") list.sort((a, b) => b.price - a.price);
+
+  if (!list.length) {
+    grid.innerHTML = '<div class="no-results">محصولی با این مشخصات پیدا نشد.</div>';
+    return;
+  }
+
+  grid.innerHTML = list.map(product => `
+    <article class="product-card">
+      <div class="product-image">
+        <img
+          src="${product.image}"
+          alt="${product.name}"
+          loading="lazy"
+          onerror="this.onerror=null;this.src='https://placehold.co/600x650/f0e5d8/49382c?text=LOTUS';">
+        ${product.label ? `<span class="product-label">${product.label}</span>` : ""}
+      </div>
+      <div class="product-info">
+        <span class="product-category">${product.categoryName}</span>
+        <h3>${product.name}</h3>
+        <p class="product-description">${product.description}</p>
+        <div class="product-bottom">
+          <span class="price">${formatPrice(product.price)}</span>
+          <button class="add-button" onclick="addToCart(${product.id})">افزودن +</button>
+        </div>
+      </div>
+    </article>
+  `).join("");
+}
+
+function chooseCategory(category) {
+  document.getElementById("categoryFilter").value = category;
+  renderProducts();
+  document.getElementById("products").scrollIntoView({ behavior: "smooth" });
+}
+
+function focusSearch() {
+  document.getElementById("search").focus();
+  document.getElementById("products").scrollIntoView({ behavior: "smooth" });
+}
+
+function addToCart(id) {
+  const item = cart.find(entry => entry.id === id);
+  if (item) {
+    item.qty += 1;
+  } else {
+    cart.push({ id, qty: 1 });
+  }
+  saveCart();
+  renderCart();
+  openCart();
+}
+
+function changeQuantity(id, amount) {
+  const item = cart.find(entry => entry.id === id);
+  if (!item) return;
+  item.qty += amount;
+  if (item.qty <= 0) cart = cart.filter(entry => entry.id !== id);
+  saveCart();
+  renderCart();
+}
+
+function removeFromCart(id) {
+  cart = cart.filter(item => item.id !== id);
+  saveCart();
+  renderCart();
+}
+
+function cartTotal() {
+  return cart.reduce((sum, item) => {
+    const product = products.find(p => p.id === item.id);
+    return sum + (product ? product.price * item.qty : 0);
+  }, 0);
+}
+
+function renderCart() {
+  const count = cart.reduce((sum, item) => sum + item.qty, 0);
+  document.getElementById("cartCount").textContent = new Intl.NumberFormat("fa-IR").format(count);
+  document.getElementById("cartTotal").textContent = formatPrice(cartTotal());
+
+  const container = document.getElementById("cartItems");
+
+  if (!cart.length) {
+    container.innerHTML = '<div class="cart-empty">سبد خریدت هنوز خالی است.<br>از محصولات لوتوس انتخاب کن.</div>';
+    return;
+  }
+
+  container.innerHTML = cart.map(item => {
+    const product = products.find(p => p.id === item.id);
+    if (!product) return "";
+    return `
+      <div class="cart-item">
+        <img src="${product.image}" alt="${product.name}">
+        <div>
+          <h4>${product.name}</h4>
+          <p>${formatPrice(product.price)}</p>
+          <div class="quantity-controls">
+            <button onclick="changeQuantity(${product.id}, 1)" aria-label="افزایش">+</button>
+            <span>${new Intl.NumberFormat("fa-IR").format(item.qty)}</span>
+            <button onclick="changeQuantity(${product.id}, -1)" aria-label="کاهش">−</button>
+          </div>
+        </div>
+        <button class="remove-button" onclick="removeFromCart(${product.id})">حذف</button>
+      </div>
+    `;
+  }).join("");
+}
+
+function openCart() {
+  document.getElementById("cartPanel").classList.add("open");
+  document.getElementById("cartOverlay").classList.add("open");
+}
+
+function closeCart() {
+  document.getElementById("cartPanel").classList.remove("open");
+  document.getElementById("cartOverlay").classList.remove("open");
+}
+
+function startCheckout() {
+  if (!cart.length) {
+    alert("سبد خرید خالی است. ابتدا محصولی اضافه کن.");
+    return;
+  }
+  closeCart();
+  document.getElementById("checkoutModal").classList.add("open");
+}
+
+function closeCheckout() {
+  document.getElementById("checkoutModal").classList.remove("open");
+}
+
+document.getElementById("orderForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  if (!cart.length) {
+    alert("سبد خرید خالی است.");
+    closeCheckout();
+    return;
+  }
+
+  if (!/^\d{8,15}$/.test(WHATSAPP_NUMBER)) {
+    alert("شماره واتساپ فروشگاه هنوز تنظیم نشده است. در کد، مقدار WHATSAPP_NUMBER را با شماره صحیح وارد کن؛ فقط اعداد و همراه با کد کشور.");
+    return;
+  }
+
+  const name = document.getElementById("customerName").value.trim();
+  const phone = document.getElementById("customerPhone").value.trim();
+  const address = document.getElementById("customerAddress").value.trim();
+  const note = document.getElementById("customerNote").value.trim();
+
+  if (!name || !phone || !address) {
+    alert("لطفاً نام، شماره تماس و آدرس را کامل وارد کن.");
+    return;
+  }
+
+  const lines = cart.map(item => {
+    const product = products.find(p => p.id === item.id);
+    return product
+      ? `- ${product.name} × ${item.qty} = ${formatPrice(product.price * item.qty)}`
+      : "";
+  }).filter(Boolean);
+
+  const message = [
+    "سلام، می‌خواهم از فروشگاه LOTUS سفارش ثبت کنم.",
+    "",
+    "نام: " + name,
+    "شماره تماس: " + phone,
+    "آدرس تحویل: " + address,
+    "",
+    "محصولات:",
+    ...lines,
+    "",
+    "جمع نمونه سفارش: " + formatPrice(cartTotal()),
+    "توضیحات: " + (note || "ندارد"),
+    "",
+    "لطفاً موجودی و قیمت نهایی را تأیید کنید."
+  ].join("\n");
+
+  const whatsappUrl = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+  window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+});
+
+document.getElementById("checkoutModal").addEventListener("click", function(event) {
+  if (event.target === this) closeCheckout();
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+renderProducts();
+renderCart();
+</script>
+
 </body>
 </html>
