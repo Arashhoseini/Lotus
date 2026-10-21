@@ -143,7 +143,7 @@ header{
   color:white;
   background:
     linear-gradient(90deg,#30221820,#302218c9),
-    url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1500&q=85')
+    url("https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1500&q=85")
     center/cover;
   border-radius:22px;
   overflow:hidden;
@@ -323,7 +323,7 @@ header{
   color:#438354
 }
 
-.out{color:#a33}
+.stock.out{color:#a33}
 
 .add{
   background:var(--ink);
@@ -605,10 +605,7 @@ footer{
   box-shadow:0 4px 15px #0002
 }
 
-
-/* =========================
-   PRODUCT DETAILS
-========================= */
+/* PRODUCT DETAILS */
 
 .product-modal{
   display:none;
@@ -622,9 +619,7 @@ footer{
   overflow:auto
 }
 
-.product-modal.open{
-  display:flex
-}
+.product-modal.open{display:flex}
 
 .product-modal-box{
   width:min(100%,900px);
@@ -659,9 +654,7 @@ footer{
   align-items:start
 }
 
-.product-gallery{
-  min-width:0
-}
+.product-gallery{min-width:0}
 
 .product-main-image{
   width:100%;
@@ -763,6 +756,11 @@ footer{
   color:white
 }
 
+.detail-cart:disabled{
+  opacity:.5;
+  cursor:not-allowed
+}
+
 .detail-close-btn{
   background:white;
   color:var(--ink);
@@ -777,6 +775,7 @@ footer{
 }
 
 @media(max-width:850px){
+
   .navlinks{display:none}
 
   .products{
@@ -802,6 +801,7 @@ footer{
 }
 
 @media(max-width:600px){
+
   .wrap{width:92%}
 
   .top{
@@ -973,9 +973,7 @@ footer{
     max-height:none
   }
 
-  .product-thumbs{
-    gap:7px
-  }
+  .product-thumbs{gap:7px}
 
   .product-thumb{
     width:62px;
@@ -1011,9 +1009,8 @@ footer{
 }
 
 @media(max-width:360px){
-  .brand{
-    font-size:20px
-  }
+
+  .brand{font-size:20px}
 
   .nav button{
     font-size:11px;
@@ -1067,11 +1064,11 @@ footer{
 </div>
 </header>
 
-
 <main>
 
 <section class="hero wrap" id="home">
 <div>
+
 <small>THE ART OF COMFORT</small>
 
 <h1>
@@ -1085,9 +1082,9 @@ footer{
 <a class="btn gold" href="#products">
 مشاهده محصولات
 </a>
+
 </div>
 </section>
-
 
 <div class="wrap features">
 
@@ -1104,7 +1101,6 @@ footer{
 </div>
 
 </div>
-
 
 <section class="section wrap" id="categories">
 
@@ -1137,7 +1133,6 @@ footer{
 
 </div>
 </section>
-
 
 <section class="section wrap" id="products">
 
@@ -1191,7 +1186,6 @@ onchange="renderProducts()"
 
 </section>
 
-
 <section class="wrap section about" id="about">
 
 <div>
@@ -1222,7 +1216,6 @@ alt="دکور اتاق خواب"
 </section>
 
 </main>
-
 
 <footer>
 
@@ -1256,22 +1249,18 @@ alt="دکور اتاق خواب"
 </div>
 
 <div class="wrap copyright">
-© <span id="year"></span> LOTUS
+© <span id="year"></span> LOTUS | تمامی حقوق محفوظ است.
 </div>
 
 </footer>
 
-
-<!-- =========================
-     CART
-========================= -->
+<!-- CART -->
 
 <div
 class="overlay"
 id="cartOverlay"
 onclick="closeCart()">
 </div>
-
 
 <aside
 class="drawer"
@@ -1316,10 +1305,7 @@ onclick="startCheckout()"
 
 </aside>
 
-
-<!-- =========================
-     CHECKOUT
-========================= -->
+<!-- CHECKOUT -->
 
 <div
 class="modal"
@@ -1350,7 +1336,6 @@ maxlength="100"
 >
 </div>
 
-
 <div class="field">
 <label for="customerPhone">
 شماره تماس
@@ -1364,7 +1349,6 @@ maxlength="30"
 >
 </div>
 
-
 <div class="field">
 <label for="customerAddress">
 آدرس تحویل
@@ -1377,7 +1361,6 @@ maxlength="500"
 ></textarea>
 </div>
 
-
 <div class="field">
 <label for="customerNote">
 توضیحات سفارش
@@ -1388,7 +1371,6 @@ id="customerNote"
 maxlength="500"
 ></textarea>
 </div>
-
 
 <div class="row">
 
@@ -1414,10 +1396,7 @@ onclick="closeCheckout()"
 </div>
 </div>
 
-
-<!-- =========================
-     PRODUCT DETAILS
-========================= -->
+<!-- PRODUCT DETAILS -->
 
 <div
 class="product-modal"
@@ -1433,7 +1412,6 @@ aria-label="بستن"
 >
 ×
 </button>
-
 
 <div class="product-detail">
 
@@ -1453,38 +1431,32 @@ class="product-thumbs"
 
 </div>
 
-
 <div class="product-detail-info">
 
 <div
 id="detailCategory"
 class="product-detail-category"
->
-</div>
+></div>
 
 <h2
 id="detailTitle"
 class="product-detail-title"
->
-</h2>
+></h2>
 
 <div
 id="detailDescription"
 class="product-detail-description"
->
-</div>
+></div>
 
 <div
 id="detailPrice"
 class="product-detail-price"
->
-</div>
+></div>
 
 <div
 id="detailStock"
 class="product-detail-stock"
->
-</div>
+></div>
 
 <div class="product-detail-actions">
 
@@ -1517,7 +1489,6 @@ onclick="closeProductDetails()"
 
 </div>
 
-
 <a
 class="adminlink"
 href="./admin.html"
@@ -1525,13 +1496,12 @@ href="./admin.html"
 پنل مدیریت
 </a>
 
-
+<!-- SUPABASE -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 
 "use strict";
-
 
 const SUPABASE_URL="https://lmkeqrflggxovjqnupll.supabase.co";
 
@@ -1542,11 +1512,9 @@ SUPABASE_URL,
 SUPABASE_KEY
 );
 
-
 let products=[];
 let cart=[];
 let currentProduct=null;
-
 
 const categoryAliases={
 
@@ -1572,7 +1540,6 @@ const categoryAliases={
 
 };
 
-
 const categoryLabels={
 
 bedding:"روتختی و لحاف",
@@ -1582,12 +1549,10 @@ accessories:"اکسسوری و کوسن"
 
 };
 
-
 const money=n=>
 new Intl.NumberFormat("fa-IR")
 .format(Number(n||0))
 +" تومان";
-
 
 function esc(v){
 
@@ -1604,70 +1569,66 @@ c=>({
 
 }
 
-
 function normalizedCategory(value){
 
-return categoryAliases[
-String(value||"")
+const text=String(value||"")
 .trim()
-.toLowerCase()
-]||"other";
+.toLowerCase();
+
+return categoryAliases[text]||"other";
 
 }
 
+function fallbackImage(){
+
+return "https://placehold.co/600x650/f0e5d8/49382c?text=LOTUS";
+
+}
 
 function productImage(p){
 
-return p.image_url ||
-"https://placehold.co/600x650/f0e5d8/49382c?text=LOTUS";
+const images=productImages(p);
+
+return images[0]||fallbackImage();
 
 }
-
-
-/*
-  این تابع امکان چند عکس را برای محصول فراهم می‌کند.
-
-  اگر image_url فقط یک لینک باشد:
-  همان یک عکس نمایش داده می‌شود.
-
-  اگر چند لینک داخل image_url با | یا خط جدید
-  ذخیره شده باشند، همه عکس‌ها نمایش داده می‌شوند.
-*/
 
 function productImages(p){
 
 const raw=p?.image_url;
 
 if(!raw){
-
-return [
-"https://placehold.co/600x650/f0e5d8/49382c?text=LOTUS"
-];
-
+return [fallbackImage()];
 }
-
 
 if(Array.isArray(raw)){
 
-return raw
+const result=raw
+.map(x=>{
+
+if(typeof x==="string")return x;
+
+if(x && typeof x==="object" && x.url){
+return x.url;
+}
+
+return "";
+
+})
 .map(x=>String(x||"").trim())
 .filter(Boolean);
 
-}
+return result.length?result:[fallbackImage()];
 
+}
 
 const value=String(raw).trim();
 
 if(!value){
-
-return [
-"https://placehold.co/600x650/f0e5d8/49382c?text=LOTUS"
-];
-
+return [fallbackImage()];
 }
 
-
-/* پشتیبانی از JSON Array */
+/* JSON Array */
 
 if(
 value.startsWith("[") &&
@@ -1682,35 +1643,43 @@ if(Array.isArray(arr)){
 
 const result=arr
 .map(x=>{
+
 if(typeof x==="string")return x;
-if(x?.url)return x.url;
+
+if(x && typeof x==="object" && x.url){
+return x.url;
+}
+
 return "";
+
 })
 .map(x=>String(x||"").trim())
 .filter(Boolean);
 
-if(result.length)return result;
+if(result.length){
+return result;
+}
 
 }
 
-}catch(e){}
+}catch(e){
+
+console.warn("image JSON parse failed",e);
 
 }
 
+}
 
-/* چند URL با | یا خط جدید */
+/* چند آدرس با | یا خط جدید */
 
 const list=value
-.split(/\||\n/)
+.split(/\||\r?\n/)
 .map(x=>x.trim())
 .filter(Boolean);
 
-return list.length
-?list
-:[value];
+return list.length?list:[value];
 
 }
-
 
 async function loadProducts(){
 
@@ -1718,7 +1687,6 @@ const grid=document.getElementById("productGrid");
 
 grid.innerHTML=
 '<div class="loading">در حال دریافت محصولات...</div>';
-
 
 try{
 
@@ -1728,20 +1696,22 @@ const {data,error}=await db
 .eq("active",true)
 .order("created_at",{ascending:false});
 
+if(error){
+throw error;
+}
 
-if(error)throw error;
+products=(data||[]).map(p=>({
 
-
-products=(data||[])
-.map(p=>({
 ...p,
+
 _category:normalizedCategory(p.category)
+
 }));
 
+console.log("LOTUS products:",products);
 
 renderProducts();
 renderCart();
-
 
 if(!products.length){
 
@@ -1750,49 +1720,47 @@ grid.innerHTML=
 
 }
 
-
 }catch(err){
 
-console.error(
-"LOTUS products error:",
-err
-);
+console.error("LOTUS products error:",err);
 
 grid.innerHTML=
-'<div class="empty">دریافت محصولات ناموفق بود: '+
+'<div class="empty">دریافت محصولات ناموفق بود.<br><br>'+
 esc(err.message||String(err))+
-'<br>اتصال Supabase، ستون active و مجوز خواندن جدول products را بررسی کنید.</div>';
+'</div>';
 
 }
 
 }
-
 
 function renderProducts(){
 
 const grid=document.getElementById("productGrid");
 
-const q=
-document.getElementById("search")
-.value
-.trim()
-.toLowerCase();
+const searchElement=document.getElementById("search");
+const categoryElement=document.getElementById("categoryFilter");
+const sortElement=document.getElementById("sortFilter");
 
-const cat=
-document.getElementById("categoryFilter")
-.value;
+const q=searchElement
+?searchElement.value.trim().toLowerCase()
+:"";
 
-const sort=
-document.getElementById("sortFilter")
-.value;
+const cat=categoryElement
+?categoryElement.value
+:"all";
 
+const sort=sortElement
+?sortElement.value
+:"default";
 
 let list=products.filter(p=>{
 
 const haystack=[
+
 p.name,
 p.description,
 p.category
+
 ]
 .join(" ")
 .toLowerCase();
@@ -1804,17 +1772,21 @@ return
 
 });
 
+if(sort==="low"){
 
-if(sort==="low")
 list.sort(
-(a,b)=>Number(a.price)-Number(b.price)
+(a,b)=>Number(a.price||0)-Number(b.price||0)
 );
 
-if(sort==="high")
+}
+
+if(sort==="high"){
+
 list.sort(
-(a,b)=>Number(b.price)-Number(a.price)
+(a,b)=>Number(b.price||0)-Number(a.price||0)
 );
 
+}
 
 if(!list.length){
 
@@ -1825,7 +1797,6 @@ return;
 
 }
 
-
 grid.innerHTML=list.map(p=>{
 
 const stock=Number(p.stock||0);
@@ -1835,19 +1806,20 @@ categoryLabels[p._category]||
 p.category||
 "محصول لوتوس";
 
+const id=String(p.id);
 
 return `
 
 <article
 class="product"
-onclick="openProductDetails('${esc(p.id)}')"
+onclick="openProductDetails(${JSON.stringify(id)})"
 >
 
 <img
 src="${esc(productImage(p))}"
-alt="${esc(p.name)}"
+alt="${esc(p.name||"محصول لوتوس")}"
 loading="lazy"
-onerror="this.onerror=null;this.src='https://placehold.co/600x650/f0e5d8/49382c?text=LOTUS'"
+onerror="this.onerror=null;this.src='${fallbackImage()}'"
 >
 
 <div class="info">
@@ -1857,7 +1829,7 @@ ${esc(category)}
 </small>
 
 <h3>
-${esc(p.name)}
+${esc(p.name||"محصول لوتوس")}
 </h3>
 
 <p>
@@ -1883,7 +1855,7 @@ ${money(p.price)}
 
 <button
 class="add"
-onclick="event.stopPropagation();addToCart('${esc(p.id)}')"
+onclick="event.stopPropagation();addToCart(${JSON.stringify(id)})"
 ${stock<=0?"disabled":""}
 >
 ${stock>0?"افزودن به سبد":"ناموجود"}
@@ -1901,10 +1873,7 @@ ${stock>0?"افزودن به سبد":"ناموجود"}
 
 }
 
-
-/* =========================
-   PRODUCT DETAILS
-========================= */
+/* PRODUCT DETAILS */
 
 function openProductDetails(id){
 
@@ -1916,10 +1885,8 @@ if(!p)return;
 
 currentProduct=p;
 
-
 const modal=
 document.getElementById("productModal");
-
 
 const mainImage=
 document.getElementById("detailMainImage");
@@ -1945,9 +1912,7 @@ document.getElementById("detailStock");
 const addButton=
 document.getElementById("detailAddButton");
 
-
 const images=productImages(p);
-
 
 title.textContent=p.name||"محصول لوتوس";
 
@@ -1962,9 +1927,7 @@ p.description||
 
 price.textContent=money(p.price);
 
-
 const stock=Number(p.stock||0);
-
 
 if(stock>0){
 
@@ -1976,6 +1939,7 @@ stockBox.className=
 "product-detail-stock";
 
 addButton.disabled=false;
+
 addButton.textContent=
 "افزودن به سبد خرید";
 
@@ -1988,18 +1952,16 @@ stockBox.className=
 "product-detail-stock out";
 
 addButton.disabled=true;
+
 addButton.textContent=
 "ناموجود";
 
 }
 
-
 mainImage.src=
-images[0]||
-"https://placehold.co/600x650/f0e5d8/49382c?text=LOTUS";
+images[0]||fallbackImage();
 
 mainImage.alt=p.name||"";
-
 
 thumbs.innerHTML=images.map(
 (img,index)=>`
@@ -2015,13 +1977,11 @@ onerror="this.style.display='none'"
 `
 ).join("");
 
-
 modal.classList.add("open");
 
 document.body.style.overflow="hidden";
 
 }
-
 
 function selectProductImage(index){
 
@@ -2032,16 +1992,13 @@ productImages(currentProduct);
 
 if(!images[index])return;
 
-
 const mainImage=
 document.getElementById("detailMainImage");
 
 mainImage.src=images[index];
 
-
 const thumbs=
 document.querySelectorAll(".product-thumb");
-
 
 thumbs.forEach(
 (t,i)=>{
@@ -2053,7 +2010,6 @@ i===index
 );
 
 }
-
 
 function closeProductDetails(){
 
@@ -2067,7 +2023,6 @@ currentProduct=null;
 
 }
 
-
 function addCurrentProductToCart(){
 
 if(!currentProduct)return;
@@ -2080,9 +2035,6 @@ addToCart(id);
 
 }
 
-
-/* بستن پنجره جزئیات با کلیک روی فضای بیرون */
-
 document
 .getElementById("productModal")
 .addEventListener(
@@ -2090,16 +2042,15 @@ document
 function(e){
 
 if(e.target===this){
+
 closeProductDetails();
+
 }
 
 }
 );
 
-
-/* =========================
-   CATEGORY / SEARCH
-========================= */
+/* CATEGORY / SEARCH */
 
 function chooseCategory(cat){
 
@@ -2117,7 +2068,6 @@ behavior:"smooth"
 
 }
 
-
 function focusSearch(){
 
 document
@@ -2126,16 +2076,17 @@ document
 behavior:"smooth"
 });
 
+setTimeout(()=>{
+
 document
 .getElementById("search")
 .focus();
 
+},300);
+
 }
 
-
-/* =========================
-   CART
-========================= */
+/* CART */
 
 function saveCart(){
 
@@ -2154,7 +2105,6 @@ console.warn(e);
 
 }
 
-
 try{
 
 const old=
@@ -2162,15 +2112,15 @@ JSON.parse(
 localStorage.getItem("lotusCart")||"[]"
 );
 
-if(Array.isArray(old))
+if(Array.isArray(old)){
 cart=old;
+}
 
 }catch(e){
 
 cart=[];
 
 }
-
 
 function addToCart(id){
 
@@ -2179,7 +2129,6 @@ x=>String(x.id)===String(id)
 );
 
 if(!p)return;
-
 
 const stock=Number(p.stock||0);
 
@@ -2191,11 +2140,9 @@ return;
 
 }
 
-
 const item=cart.find(
 x=>String(x.id)===String(id)
 );
-
 
 if(item){
 
@@ -2220,7 +2167,6 @@ qty:1
 
 }
 
-
 saveCart();
 
 renderCart();
@@ -2228,7 +2174,6 @@ renderCart();
 openCart();
 
 }
-
 
 function changeQty(id,delta){
 
@@ -2242,9 +2187,7 @@ x=>String(x.id)===String(id)
 
 if(!item||!p)return;
 
-
 item.qty+=delta;
-
 
 if(item.qty<=0){
 
@@ -2264,13 +2207,11 @@ alert(
 
 }
 
-
 saveCart();
 
 renderCart();
 
 }
-
 
 function removeItem(id){
 
@@ -2283,7 +2224,6 @@ saveCart();
 renderCart();
 
 }
-
 
 function cartTotal(){
 
@@ -2309,7 +2249,6 @@ Number(i.qty||0)
 
 }
 
-
 function renderCart(){
 
 document
@@ -2323,16 +2262,13 @@ cart.reduce(
 )
 );
 
-
 document
 .getElementById("cartTotal")
 .textContent=
 money(cartTotal());
 
-
 const box=
 document.getElementById("cartItems");
-
 
 const valid=
 cart.filter(
@@ -2340,7 +2276,6 @@ i=>products.some(
 p=>String(p.id)===String(i.id)
 )
 );
-
 
 if(!valid.length){
 
@@ -2351,14 +2286,12 @@ return;
 
 }
 
-
 box.innerHTML=
 valid.map(i=>{
 
 const p=products.find(
 x=>String(x.id)===String(i.id)
 );
-
 
 return `
 
@@ -2367,6 +2300,7 @@ return `
 <img
 src="${esc(productImage(p))}"
 alt=""
+onerror="this.onerror=null;this.src='${fallbackImage()}'"
 >
 
 <div>
@@ -2382,7 +2316,7 @@ ${money(p.price)}
 <div class="qty">
 
 <button
-onclick="changeQty('${esc(p.id)}',1)"
+onclick="changeQty(${JSON.stringify(String(p.id))},1)"
 >
 +
 </button>
@@ -2392,7 +2326,7 @@ ${i.qty}
 </span>
 
 <button
-onclick="changeQty('${esc(p.id)}',-1)"
+onclick="changeQty(${JSON.stringify(String(p.id))},-1)"
 >
 −
 </button>
@@ -2403,7 +2337,7 @@ onclick="changeQty('${esc(p.id)}',-1)"
 
 <button
 class="close"
-onclick="removeItem('${esc(p.id)}')"
+onclick="removeItem(${JSON.stringify(String(p.id))})"
 >
 حذف
 </button>
@@ -2415,7 +2349,6 @@ onclick="removeItem('${esc(p.id)}')"
 }).join("");
 
 }
-
 
 function openCart(){
 
@@ -2429,7 +2362,6 @@ document
 
 }
 
-
 function closeCart(){
 
 document
@@ -2442,10 +2374,7 @@ document
 
 }
 
-
-/* =========================
-   CHECKOUT
-========================= */
+/* CHECKOUT */
 
 function startCheckout(){
 
@@ -2465,7 +2394,6 @@ document
 
 }
 
-
 function closeCheckout(){
 
 document
@@ -2473,7 +2401,6 @@ document
 .classList.remove("open");
 
 }
-
 
 document
 .getElementById("orderForm")
@@ -2483,7 +2410,6 @@ async function(e){
 
 e.preventDefault();
 
-
 if(!cart.length){
 
 alert("سبد خرید خالی است.");
@@ -2492,12 +2418,10 @@ return;
 
 }
 
-
 const submit=
 this.querySelector(
 'button[type="submit"]'
 );
-
 
 const name=
 document
@@ -2505,13 +2429,11 @@ document
 .value
 .trim();
 
-
 const phone=
 document
 .getElementById("customerPhone")
 .value
 .trim();
-
 
 const address=
 document
@@ -2519,13 +2441,11 @@ document
 .value
 .trim();
 
-
 const note=
 document
 .getElementById("customerNote")
 .value
 .trim();
-
 
 const items=
 cart.map(i=>{
@@ -2535,7 +2455,8 @@ x=>String(x.id)===String(i.id)
 );
 
 return p
-?{
+?
+{
 product_id:p.id,
 name:p.name,
 quantity:Number(i.qty),
@@ -2544,7 +2465,6 @@ price:Number(p.price)
 :null;
 
 }).filter(Boolean);
-
 
 if(!items.length){
 
@@ -2556,7 +2476,6 @@ return;
 
 }
 
-
 const total=
 items.reduce(
 (sum,i)=>
@@ -2564,11 +2483,9 @@ sum+i.price*i.quantity,
 0
 );
 
-
 submit.disabled=true;
 
 submit.textContent="در حال ثبت...";
-
 
 try{
 
@@ -2595,14 +2512,11 @@ status:"pending"
 .select("id")
 .single();
 
-
 if(error)throw error;
-
 
 const orderId=
 data?.id||
 "ثبت‌شده";
-
 
 cart=[];
 
@@ -2614,13 +2528,11 @@ closeCheckout();
 
 this.reset();
 
-
 alert(
 "سفارش با موفقیت ثبت شد. شماره سفارش: "+
 orderId+
 " . برای پیگیری با فروشگاه تماس بگیرید."
 );
-
 
 }catch(err){
 
@@ -2631,8 +2543,7 @@ err
 
 alert(
 "ثبت سفارش ناموفق بود: "+
-(err.message||String(err))+
-" . ساختار جدول orders و مجوز ثبت سفارش در Supabase باید بررسی شود."
+(err.message||String(err))
 );
 
 }finally{
@@ -2643,13 +2554,9 @@ submit.textContent="ثبت سفارش";
 
 }
 
-}
-);
+});
 
-
-/* =========================
-   ESC KEY
-========================= */
+/* ESC */
 
 document.addEventListener(
 "keydown",
@@ -2668,20 +2575,14 @@ closeCart();
 }
 );
 
-
-/* =========================
-   YEAR
-========================= */
+/* YEAR */
 
 document
 .getElementById("year")
 .textContent=
 new Date().getFullYear();
 
-
-/* =========================
-   START
-========================= */
+/* START */
 
 loadProducts();
 
