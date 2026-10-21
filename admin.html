@@ -4,508 +4,367 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f3eee8">
-  <title>مدیریت فروشگاه لوتوس</title>
+  <meta name="theme-color" content="#f4f7ff">
+  <title>پنل مدیریت لوتوس</title>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
-    :root {
-      --bg: #f5f2ed;
-      --card: #ffffff;
-      --ink: #302b29;
-      --muted: #827871;
-      --accent: #84644c;
-      --line: #e9e1d9;
-      --danger: #b63b3b;
-      --green: #26764b;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: Tahoma, Arial, sans-serif;
-    }
-
-    button, input, textarea, select { font: inherit; }
-
-    button {
-      cursor: pointer;
-      border: 0;
-      border-radius: 10px;
-      padding: 12px 16px;
-      background: var(--accent);
-      color: white;
-    }
-
-    button:disabled { opacity: .55; cursor: wait; }
-
-    input, textarea, select {
-      width: 100%;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      background: white;
-      padding: 12px;
-      color: var(--ink);
-      outline-color: var(--accent);
-    }
-
-    textarea { min-height: 90px; resize: vertical; }
-
-    label {
-      display: block;
-      margin-bottom: 7px;
-      font-size: 13px;
-      font-weight: bold;
-    }
-
-    .wrap { max-width: 1100px; margin: auto; padding: 20px; }
-
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 22px;
-    }
-
-    .brand { font-size: 25px; font-weight: bold; letter-spacing: 2px; }
-    .sub { color: var(--muted); font-size: 13px; margin-top: 5px; }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 20px;
-      margin-bottom: 18px;
-      box-shadow: 0 5px 20px #38291a08;
-    }
-
-    h2 { margin-top: 0; font-size: 19px; }
-    .hidden { display: none !important; }
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .field { margin-bottom: 14px; }
-    .wide { grid-column: 1 / -1; }
-    .actions { display: flex; flex-wrap: wrap; gap: 8px; }
-    .secondary { background: #eee6df; color: var(--ink); }
-    .danger { background: var(--danger); }
-    .success { background: var(--green); }
-    .status { font-size: 14px; line-height: 1.9; white-space: pre-wrap; }
-    .muted { color: var(--muted); font-size: 13px; }
-    .preview {
-      width: 100%;
-      max-width: 180px;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      background: #f8f5f1;
-      margin-top: 10px;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 14px;
-    }
-
-    .product {
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 12px;
-      min-width: 0;
-    }
-
-    .product img {
-      width: 100%;
-      height: 170px;
-      object-fit: cover;
-      border-radius: 10px;
-      background: #f5f0ea;
-    }
-
-    .product h3 { margin: 12px 0 7px; font-size: 16px; overflow-wrap: anywhere; }
-    .product p { color: var(--muted); font-size: 13px; line-height: 1.8; }
-    .price { font-weight: bold; color: var(--accent); margin: 8px 0; }
-    .pill { font-size: 12px; padding: 4px 8px; border-radius: 30px; background: #eee6df; display: inline-block; }
-    .pill.off { background: #f9e3e3; color: #a12d2d; }
-    .empty { text-align: center; padding: 32px 12px; color: var(--muted); }
-
-    @media (max-width: 600px) {
-      .wrap { padding: 12px; }
-      .card { padding: 15px; }
-      .grid { grid-template-columns: 1fr; }
-      .wide { grid-column: auto; }
-      header { align-items: flex-start; }
-      .brand { font-size: 21px; }
-    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Tahoma,Arial,sans-serif;background:#f2f5fb;color:#25324a}
+    header{background:linear-gradient(135deg,#263c70,#6689d9);color:white;padding:24px 16px}
+    header h1{margin:0 0 8px;font-size:25px}
+    header p{margin:0;color:#e2eaff;font-size:13px}
+    main{max-width:1000px;margin:20px auto;padding:0 12px}
+    .card{background:white;border-radius:16px;padding:18px;margin-bottom:16px;box-shadow:0 5px 22px #1e376510}
+    h2{font-size:18px;margin:0 0 16px}
+    label{display:block;font-size:13px;margin:12px 0 6px}
+    input,textarea,select{width:100%;padding:12px;border:1px solid #dce3ef;border-radius:10px;font:inherit;background:white}
+    textarea{min-height:90px;resize:vertical}
+    button{border:0;border-radius:10px;padding:12px 16px;background:#4169c9;color:white;font:inherit;cursor:pointer}
+    button:disabled{opacity:.55;cursor:wait}
+    .secondary{background:#e9eef9;color:#2e467d}
+    .danger{background:#b72c45}
+    .success{background:#18875b}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+    .hidden{display:none!important}
+    .status{padding:12px;border-radius:10px;background:#eef3ff;margin:12px 0;font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere}
+    .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+    .product{border:1px solid #e4e9f3;border-radius:13px;padding:12px;min-width:0}
+    .product img{width:100%;height:170px;object-fit:cover;border-radius:9px;background:#f0f3f8}
+    .product h3{font-size:16px;margin:10px 0}
+    .muted{color:#7b879d;font-size:12px;line-height:1.8}
+    .price{font-weight:bold;color:#3157ac}
+    .topline{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+    @media(max-width:560px){.row{grid-template-columns:1fr}header h1{font-size:22px}.card{padding:14px}}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div>
-        <div class="brand">LOTUS <span style="color:#84644c">لوتوس</span></div>
-        <div class="sub">پنل مدیریت فروشگاه روتختی و لوازم اتاق خواب</div>
+<header>
+  <h1>🌸 لوتوس | پنل مدیریت</h1>
+  <p>مدیریت محصولات و موجودی فروشگاه</p>
+</header>
+
+<main>
+  <div id="notice" class="status">برای شروع، با حساب مدیر وارد شوید.</div>
+
+  <section id="loginCard" class="card">
+    <h2>ورود مدیر</h2>
+    <form id="loginForm">
+      <label for="email">ایمیل مدیر</label>
+      <input id="email" type="email" autocomplete="username" required>
+      <label for="password">رمز عبور</label>
+      <input id="password" type="password" autocomplete="current-password" required>
+      <div class="actions">
+        <button id="loginBtn" type="submit">ورود به پنل</button>
       </div>
-      <button id="logoutBtn" class="secondary hidden" type="button">خروج از حساب</button>
-    </header>
+    </form>
+  </section>
 
-    <div id="status" class="card status" role="status">در حال آماده‌سازی پنل...</div>
-
-    <section id="loginSection" class="card hidden">
-      <h2>ورود مدیر</h2>
-      <p class="muted">با ایمیل و رمز عبور حساب مدیر Supabase وارد شو.</p>
-      <form id="loginForm">
-        <div class="field">
-          <label for="email">ایمیل</label>
-          <input id="email" type="email" autocomplete="username" required>
+  <div id="dashboard" class="hidden">
+    <section class="card">
+      <div class="topline">
+        <h2 id="formTitle">افزودن محصول جدید</h2>
+        <button id="logoutBtn" class="secondary" type="button">خروج</button>
+      </div>
+      <form id="productForm">
+        <input id="productId" type="hidden">
+        <label for="name">نام محصول *</label>
+        <input id="name" maxlength="160" required placeholder="مثلاً روتختی دونفره">
+        <label for="description">توضیحات</label>
+        <textarea id="description" placeholder="جنس، ابعاد و توضیحات محصول"></textarea>
+        <div class="row">
+          <div>
+            <label for="price">قیمت به تومان *</label>
+            <input id="price" type="number" min="0" step="1" required>
+          </div>
+          <div>
+            <label for="stock">تعداد موجودی *</label>
+            <input id="stock" type="number" min="0" step="1" value="0" required>
+          </div>
         </div>
-        <div class="field">
-          <label for="password">رمز عبور</label>
-          <input id="password" type="password" autocomplete="current-password" required>
+        <label for="category">دسته‌بندی</label>
+        <select id="category">
+          <option>روتختی</option>
+          <option>ملحفه</option>
+          <option>بالش</option>
+          <option>لحاف و پتو</option>
+          <option>پرده</option>
+          <option>دکور اتاق خواب</option>
+          <option>سرویس خواب</option>
+          <option>عمومی</option>
+        </select>
+        <label for="image">تصویر محصول (JPG، PNG یا WebP)</label>
+        <input id="image" type="file" accept="image/jpeg,image/png,image/webp">
+        <p class="muted">حداکثر حجم تصویر ۵ مگابایت است. برای تغییر تصویر، فایل جدید انتخاب کن.</p>
+        <label><input id="active" type="checkbox" checked style="width:auto"> نمایش محصول در فروشگاه</label>
+        <div class="actions">
+          <button id="saveBtn" type="submit">ذخیره محصول</button>
+          <button id="resetBtn" type="button" class="secondary">فرم جدید</button>
         </div>
-        <button type="submit" id="loginBtn">ورود امن</button>
       </form>
     </section>
 
-    <section id="adminSection" class="hidden">
-      <div class="card">
-        <h2 id="formTitle">افزودن محصول جدید</h2>
-
-        <form id="productForm">
-          <input id="productId" type="hidden">
-
-          <div class="grid">
-            <div class="field">
-              <label for="name">نام محصول *</label>
-              <input id="name" maxlength="200" required placeholder="مثلاً ست روتختی دونفره">
-            </div>
-
-            <div class="field">
-              <label for="category">دسته‌بندی *</label>
-              <input id="category" maxlength="100" required placeholder="مثلاً روتختی">
-            </div>
-
-            <div class="field">
-              <label for="price">قیمت به تومان *</label>
-              <input id="price" type="number" min="0" step="1" required placeholder="مثلاً 2500000">
-            </div>
-
-            <div class="field">
-              <label for="stock">موجودی *</label>
-              <input id="stock" type="number" min="0" step="1" value="0" required>
-            </div>
-
-            <div class="field wide">
-              <label for="description">توضیحات محصول</label>
-              <textarea id="description" maxlength="5000" placeholder="جنس، ابعاد، رنگ و توضیحات محصول"></textarea>
-            </div>
-
-            <div class="field wide">
-              <label for="image">تصویر محصول</label>
-              <input id="image" type="file" accept="image/jpeg,image/png,image/webp,image/gif">
-              <div class="muted">حداکثر 5 مگابایت. فرمت‌های JPG، PNG، WebP و GIF.</div>
-              <img id="imagePreview" class="preview hidden" alt="پیش‌نمایش عکس محصول">
-            </div>
-
-            <div class="field wide">
-              <label>
-                <input id="active" type="checkbox" checked style="width:auto; margin-left:6px">
-                محصول در فروشگاه نمایش داده شود
-              </label>
-            </div>
-          </div>
-
-          <div class="actions">
-            <button type="submit" id="saveBtn">ذخیره محصول</button>
-            <button type="button" id="cancelEditBtn" class="secondary hidden">لغو ویرایش</button>
-          </div>
-        </form>
+    <section class="card">
+      <div class="topline">
+        <h2>محصولات فروشگاه</h2>
+        <button id="refreshBtn" type="button" class="secondary">به‌روزرسانی</button>
       </div>
-
-      <div class="card">
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
-          <h2 style="margin-bottom:0">محصولات فروشگاه</h2>
-          <button type="button" id="refreshBtn" class="secondary">به‌روزرسانی فهرست</button>
-        </div>
-        <p id="productCount" class="muted"></p>
-        <div id="products" class="products"></div>
-      </div>
+      <label for="search">جست‌وجوی محصولات</label>
+      <input id="search" placeholder="نام محصول را وارد کن...">
+      <p id="productCount" class="muted"></p>
+      <div id="products" class="products"></div>
     </section>
   </div>
+</main>
 
-  <script>
-    // Public browser key only. Never put a service_role or secret key here.
-    const SUPABASE_URL = "https://lmkeqrflggxovjqnupll.supabase.co";
-    const SUPABASE_KEY = "sb_publishable_DQCI-4BHUWcRSQjphryqKQ_aHu35b76";
-    const BUCKET = "lotus-products";
+<script>
+(() => {
+  "use strict";
 
-    const $ = (id) => document.getElementById(id);
-    const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  const SUPABASE_URL = "https://lmkeqrflggxovjqnupll.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_DQCI-4BHUWcRSQjphryqKQ_aHu35b76";
+  const BUCKET = "lotus-products";
+  const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-    let currentImageUrl = "";
-    let currentImagePath = "";
-    let busy = false;
+  const $ = id => document.getElementById(id);
+  let allProducts = [];
+  let busy = false;
 
-    function setStatus(message, isError = false) {
-      $("status").textContent = message;
-      $("status").style.color = isError ? "#b63b3b" : "";
-      $("status").classList.remove("hidden");
+  function message(text, error = false) {
+    $("notice").textContent = text;
+    $("notice").style.background = error ? "#fff0f1" : "#eef3ff";
+    $("notice").style.color = error ? "#a51f37" : "#25324a";
+  }
+
+  function friendlyError(error) {
+    const text = error?.message || String(error || "خطای ناشناخته");
+    if (/row-level security|permission denied|not allowed/i.test(text)) {
+      return "دسترسی مجاز نیست. عضویت حساب در admin_users و سیاست‌های RLS را بررسی کن.";
+    }
+    if (/bucket|storage/i.test(text)) {
+      return "خطای فضای تصاویر. وجود bucket با نام lotus-products و سیاست‌های Storage را بررسی کن. جزئیات: " + text;
+    }
+    return text;
+  }
+
+  function setBusy(value) {
+    busy = value;
+    $("saveBtn").disabled = value;
+    $("loginBtn").disabled = value;
+  }
+
+  async function isAdmin(user) {
+    const { data, error } = await client
+      .from("admin_users")
+      .select("user_id")
+      .eq("user_id", user.id)
+      .maybeSingle();
+
+    if (error) throw error;
+    return !!data;
+  }
+
+  async function showSession() {
+    const { data, error } = await client.auth.getSession();
+    if (error) throw error;
+
+    const session = data.session;
+    if (!session) {
+      $("loginCard").classList.remove("hidden");
+      $("dashboard").classList.add("hidden");
+      return;
     }
 
-    function showLogin() {
-      $("loginSection").classList.remove("hidden");
-      $("adminSection").classList.add("hidden");
-      $("logoutBtn").classList.add("hidden");
-    }
-
-    function showAdmin() {
-      $("loginSection").classList.add("hidden");
-      $("adminSection").classList.remove("hidden");
-      $("logoutBtn").classList.remove("hidden");
-    }
-
-    function formatPrice(value) {
-      return Number(value || 0).toLocaleString("fa-IR") + " تومان";
-    }
-
-    function safeImageUrl(url) {
-      if (!url) return "";
-      try {
-        const parsed = new URL(url);
-        return parsed.protocol === "https:" ? parsed.href : "";
-      } catch {
-        return "";
-      }
-    }
-
-    async function checkAdmin() {
-      const { data: { user }, error: sessionError } = await client.auth.getUser();
-
-      if (sessionError || !user) {
-        showLogin();
-        setStatus("برای مدیریت محصولات، ابتدا وارد حساب مدیر شو.");
-        return false;
-      }
-
-      const { data, error } = await client
-        .from("admin_users")
-        .select("user_id")
-        .eq("user_id", user.id)
-        .maybeSingle();
-
-      if (error) {
-        showLogin();
-        setStatus("بررسی دسترسی مدیر ناموفق بود. سیاست RLS جدول admin_users را بررسی کن. جزئیات: " + error.message, true);
-        return false;
-      }
-
-      if (!data) {
-        await client.auth.signOut();
-        showLogin();
-        setStatus("این حساب دسترسی مدیر ندارد. UUID حساب را در جدول admin_users ثبت کن.", true);
-        return false;
-      }
-
-      showAdmin();
-      setStatus("ورود موفق بود. می‌توانی محصولات فروشگاه لوتوس را مدیریت کنی.");
-      await loadProducts();
-      return true;
-    }
-
-    $("loginForm").addEventListener("submit", async (event) => {
-      event.preventDefault();
-      if (busy) return;
-
-      busy = true;
-      $("loginBtn").disabled = true;
-      setStatus("در حال بررسی اطلاعات ورود...");
-
-      try {
-        const { error } = await client.auth.signInWithPassword({
-          email: $("email").value.trim(),
-          password: $("password").value
-        });
-
-        if (error) throw error;
-        await checkAdmin();
-      } catch (error) {
-        setStatus("ورود ناموفق بود: " + error.message, true);
-      } finally {
-        busy = false;
-        $("loginBtn").disabled = false;
-      }
-    });
-
-    $("logoutBtn").addEventListener("click", async () => {
+    let allowed;
+    try {
+      allowed = await isAdmin(session.user);
+    } catch (error) {
       await client.auth.signOut();
-      showLogin();
-      setStatus("از حساب مدیریت خارج شدی.");
-    });
+      throw error;
+    }
 
-    $("image").addEventListener("change", () => {
-      const file = $("image").files[0];
-      if (!file) return;
+    if (!allowed) {
+      await client.auth.signOut();
+      $("loginCard").classList.remove("hidden");
+      $("dashboard").classList.add("hidden");
+      throw new Error("این حساب مدیر نیست. ابتدا شناسه کاربر را در public.admin_users ثبت کن.");
+    }
 
-      const allowed = ["image/jpeg", "image/png", "image/webp", "image/gif"];
-      if (!allowed.includes(file.type) || file.size > 5 * 1024 * 1024) {
-        $("image").value = "";
-        $("imagePreview").classList.add("hidden");
-        setStatus("عکس باید JPG، PNG، WebP یا GIF و حداکثر ۵ مگابایت باشد.", true);
-        return;
-      }
+    $("loginCard").classList.add("hidden");
+    $("dashboard").classList.remove("hidden");
+    await loadProducts();
+  }
 
-      $("imagePreview").src = URL.createObjectURL(file);
-      $("imagePreview").classList.remove("hidden");
-    });
-
-    async function uploadImage(file) {
-      const extensionMap = {
-        "image/jpeg": "jpg",
-        "image/png": "png",
-        "image/webp": "webp",
-        "image/gif": "gif"
-      };
-      const ext = extensionMap[file.type];
-      const path = "products/" + crypto.randomUUID() + "." + ext;
-
-      const { error } = await client.storage
-        .from(BUCKET)
-        .upload(path, file, {
-          cacheControl: "3600",
-          upsert: false,
-          contentType: file.type
-        });
-
+  $("loginForm").addEventListener("submit", async event => {
+    event.preventDefault();
+    if (busy) return;
+    setBusy(true);
+    try {
+      const { error } = await client.auth.signInWithPassword({
+        email: $("email").value.trim(),
+        password: $("password").value
+      });
       if (error) throw error;
+      await showSession();
+      message("با موفقیت وارد پنل مدیریت شدی.");
+    } catch (error) {
+      message("ورود ناموفق بود: " + friendlyError(error), true);
+    } finally {
+      setBusy(false);
+    }
+  });
 
-      const { data } = client.storage.from(BUCKET).getPublicUrl(path);
-      return { url: data.publicUrl, path };
+  $("logoutBtn").addEventListener("click", async () => {
+    const { error } = await client.auth.signOut();
+    if (error) message(friendlyError(error), true);
+    else {
+      $("loginCard").classList.remove("hidden");
+      $("dashboard").classList.add("hidden");
+      message("از حساب خارج شدی.");
+    }
+  });
+
+  function resetForm() {
+    $("productForm").reset();
+    $("productId").value = "";
+    $("active").checked = true;
+    $("stock").value = "0";
+    $("formTitle").textContent = "افزودن محصول جدید";
+    $("saveBtn").textContent = "ذخیره محصول";
+  }
+
+  $("resetBtn").addEventListener("click", resetForm);
+
+  async function uploadImage(file) {
+    if (!file) return null;
+    const allowed = ["image/jpeg", "image/png", "image/webp"];
+    if (!allowed.includes(file.type)) {
+      throw new Error("فرمت تصویر باید JPG، PNG یا WebP باشد.");
+    }
+    if (file.size > 5 * 1024 * 1024) {
+      throw new Error("حجم تصویر باید کمتر از ۵ مگابایت باشد.");
     }
 
-    function resetForm() {
-      $("productForm").reset();
-      $("productId").value = "";
-      $("stock").value = "0";
-      $("active").checked = true;
-      $("formTitle").textContent = "افزودن محصول جدید";
-      $("saveBtn").textContent = "ذخیره محصول";
-      $("cancelEditBtn").classList.add("hidden");
-      $("imagePreview").classList.add("hidden");
-      $("imagePreview").removeAttribute("src");
-      $("image").value = "";
-      currentImageUrl = "";
-      currentImagePath = "";
-    }
+    const ext = file.type === "image/jpeg" ? "jpg" :
+                file.type === "image/png" ? "png" : "webp";
+    const path = "products/" + crypto.randomUUID() + "." + ext;
+    const { error } = await client.storage.from(BUCKET).upload(path, file, {
+      contentType: file.type,
+      upsert: false
+    });
+    if (error) throw error;
 
-    $("cancelEditBtn").addEventListener("click", resetForm);
+    const { data } = client.storage.from(BUCKET).getPublicUrl(path);
+    return data.publicUrl;
+  }
 
-    $("productForm").addEventListener("submit", async (event) => {
-      event.preventDefault();
-      if (busy) return;
-
+  $("productForm").addEventListener("submit", async event => {
+    event.preventDefault();
+    if (busy) return;
+    setBusy(true);
+    try {
       const id = $("productId").value;
       const name = $("name").value.trim();
-      const category = $("category").value.trim();
       const price = Number($("price").value);
       const stock = Number($("stock").value);
+
+      if (!name) throw new Error("نام محصول را وارد کن.");
+      if (!Number.isFinite(price) || price < 0) throw new Error("قیمت معتبر نیست.");
+      if (!Number.isInteger(stock) || stock < 0) throw new Error("موجودی باید عدد صحیح و نامنفی باشد.");
+
+      const payload = {
+        name,
+        description: $("description").value.trim(),
+        price,
+        category: $("category").value,
+        stock,
+        active: $("active").checked,
+        updated_at: new Date().toISOString()
+      };
+
       const file = $("image").files[0];
+      if (file) payload.image_url = await uploadImage(file);
 
-      if (!name || !category || !Number.isFinite(price) || price < 0 ||
-          !Number.isInteger(stock) || stock < 0) {
-        setStatus("نام، دسته‌بندی، قیمت و موجودی را درست وارد کن.", true);
-        return;
+      let result;
+      if (id) {
+        result = await client.from("products").update(payload).eq("id", id);
+      } else {
+        result = await client.from("products").insert(payload);
       }
+      if (result.error) throw result.error;
 
-      busy = true;
-      $("saveBtn").disabled = true;
-      setStatus("در حال ذخیره محصول...");
+      resetForm();
+      message(id ? "محصول با موفقیت ویرایش شد." : "محصول با موفقیت اضافه شد.");
+      await loadProducts();
+    } catch (error) {
+      message("ذخیره محصول انجام نشد: " + friendlyError(error), true);
+    } finally {
+      setBusy(false);
+    }
+  });
 
-      try {
-        let imageUrl = currentImageUrl;
+  async function loadProducts() {
+    $("products").textContent = "در حال دریافت محصولات...";
+    const { data, error } = await client
+      .from("products")
+      .select("id,name,description,price,image_url,category,stock,active,created_at")
+      .order("created_at", { ascending: false });
 
-        if (file) {
-          const uploaded = await uploadImage(file);
-          imageUrl = uploaded.url;
-        }
+    if (error) {
+      $("products").textContent = "";
+      throw error;
+    }
+    allProducts = data || [];
+    renderProducts();
+  }
 
-        const product = {
-          name,
-          description: $("description").value.trim(),
-          price,
-          image_url: imageUrl || "",
-          category,
-          stock,
-          active: $("active").checked,
-          updated_at: new Date().toISOString()
-        };
+  function renderProducts() {
+    const term = $("search").value.trim().toLocaleLowerCase("fa");
+    const filtered = allProducts.filter(p =>
+      String(p.name || "").toLocaleLowerCase("fa").includes(term)
+    );
 
-        let result;
-        if (id) {
-          result = await client
-            .from("products")
-            .update(product)
-            .eq("id", id)
-            .select("id")
-            .single();
-        } else {
-          result = await client
-            .from("products")
-            .insert(product)
-            .select("id")
-            .single();
-        }
+    $("productCount").textContent =
+      "تعداد محصولات: " + filtered.length + " (مجموع " + allProducts.length + ")";
 
-        if (result.error) throw result.error;
+    const container = $("products");
+    container.replaceChildren();
 
-        setStatus(id ? "محصول با موفقیت ویرایش شد." : "محصول جدید با موفقیت اضافه شد.");
-        resetForm();
-        await loadProducts();
-      } catch (error) {
-        setStatus("ذخیره محصول ناموفق بود: " + error.message, true);
-      } finally {
-        busy = false;
-        $("saveBtn").disabled = false;
-      }
-    });
+    if (!filtered.length) {
+      container.textContent = "محصولی پیدا نشد.";
+      return;
+    }
 
-    function makeProductCard(product) {
+    filtered.forEach(product => {
       const card = document.createElement("article");
       card.className = "product";
 
-      const img = document.createElement("img");
-      img.alt = product.name || "تصویر محصول";
-      img.loading = "lazy";
-      img.src = safeImageUrl(product.image_url) ||
-        "data:image/svg+xml;charset=UTF-8," +
-        encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300"><rect width="100%" height="100%" fill="#f5f0ea"/><text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="#827871" font-size="20">LOTUS</text></svg>');
-      card.appendChild(img);
+      if (product.image_url) {
+        const img = document.createElement("img");
+        img.src = product.image_url;
+        img.alt = product.name || "تصویر محصول";
+        img.loading = "lazy";
+        card.append(img);
+      }
 
       const title = document.createElement("h3");
       title.textContent = product.name || "بدون نام";
-      card.appendChild(title);
+      card.append(title);
 
-      const price = document.createElement("div");
+      const price = document.createElement("p");
       price.className = "price";
-      price.textContent = formatPrice(product.price);
-      card.appendChild(price);
+      price.textContent = Number(product.price || 0).toLocaleString("fa-IR") + " تومان";
+      card.append(price);
 
-      const details = document.createElement("p");
-      details.textContent =
-        "دسته‌بندی: " + (product.category || "بدون دسته‌بندی") +
-        "\nموجودی: " + Number(product.stock || 0).toLocaleString("fa-IR");
-      card.appendChild(details);
-
-      const pill = document.createElement("span");
-      pill.className = "pill" + (product.active ? "" : " off");
-      pill.textContent = product.active ? "فعال" : "غیرفعال";
-      card.appendChild(pill);
+      const info = document.createElement("p");
+      info.className = "muted";
+      info.textContent = "دسته: " + (product.category || "عمومی") +
+        " | موجودی: " + Number(product.stock || 0) +
+        " | وضعیت: " + (product.active ? "فعال" : "غیرفعال");
+      card.append(info);
 
       const actions = document.createElement("div");
       actions.className = "actions";
-      actions.style.marginTop = "12px";
 
       const edit = document.createElement("button");
       edit.type = "button";
@@ -516,103 +375,71 @@
         $("name").value = product.name || "";
         $("description").value = product.description || "";
         $("price").value = product.price ?? 0;
-        $("category").value = product.category || "";
+        $("category").value = product.category || "عمومی";
         $("stock").value = product.stock ?? 0;
-        $("active").checked = Boolean(product.active);
-        $("formTitle").textContent = "ویرایش محصول";
-        $("saveBtn").textContent = "ذخیره تغییرات";
-        $("cancelEditBtn").classList.remove("hidden");
-        currentImageUrl = product.image_url || "";
-        currentImagePath = "";
+        $("active").checked = !!product.active;
         $("image").value = "";
-
-        if (safeImageUrl(currentImageUrl)) {
-          $("imagePreview").src = currentImageUrl;
-          $("imagePreview").classList.remove("hidden");
-        } else {
-          $("imagePreview").classList.add("hidden");
-        }
-
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        $("formTitle").textContent = "ویرایش محصول";
+        $("saveBtn").textContent = "ثبت تغییرات";
+        $("productForm").scrollIntoView({ behavior: "smooth", block: "start" });
       });
-      actions.appendChild(edit);
+      actions.append(edit);
 
       const toggle = document.createElement("button");
       toggle.type = "button";
       toggle.className = "secondary";
-      toggle.textContent = product.active ? "غیرفعال‌کردن" : "فعال‌کردن";
+      toggle.textContent = product.active ? "غیرفعال کردن" : "فعال کردن";
       toggle.addEventListener("click", async () => {
+        if (!confirm("وضعیت نمایش این محصول تغییر کند؟")) return;
         const { error } = await client.from("products")
           .update({ active: !product.active, updated_at: new Date().toISOString() })
           .eq("id", product.id);
-        if (error) setStatus("تغییر وضعیت ناموفق بود: " + error.message, true);
+        if (error) message(friendlyError(error), true);
         else {
-          setStatus("وضعیت محصول تغییر کرد.");
+          message("وضعیت محصول تغییر کرد.");
           await loadProducts();
         }
       });
-      actions.appendChild(toggle);
+      actions.append(toggle);
 
-      const del = document.createElement("button");
-      del.type = "button";
-      del.className = "danger";
-      del.textContent = "حذف";
-      del.addEventListener("click", async () => {
-        if (!confirm("محصول «" + product.name + "» حذف شود؟ این کار برگشت‌پذیر نیست.")) return;
+      const remove = document.createElement("button");
+      remove.type = "button";
+      remove.className = "danger";
+      remove.textContent = "حذف";
+      remove.addEventListener("click", async () => {
+        if (!confirm("محصول «" + product.name + "» برای همیشه حذف شود؟")) return;
         const { error } = await client.from("products").delete().eq("id", product.id);
-        if (error) setStatus("حذف ناموفق بود: " + error.message, true);
+        if (error) message("حذف انجام نشد: " + friendlyError(error), true);
         else {
-          setStatus("محصول حذف شد.");
-          if ($("productId").value === product.id) resetForm();
+          message("محصول حذف شد.");
           await loadProducts();
         }
       });
-      actions.appendChild(del);
+      actions.append(remove);
+      card.append(actions);
+      container.append(card);
+    });
+  }
 
-      card.appendChild(actions);
-      return card;
+  $("refreshBtn").addEventListener("click", async () => {
+    try {
+      await loadProducts();
+      message("فهرست محصولات به‌روزرسانی شد.");
+    } catch (error) {
+      message(friendlyError(error), true);
     }
+  });
 
-    async function loadProducts() {
-      $("products").replaceChildren();
-      $("productCount").textContent = "در حال بارگذاری...";
+  $("search").addEventListener("input", renderProducts);
 
-      const { data, error } = await client
-        .from("products")
-        .select("id,name,description,price,image_url,category,stock,active,created_at")
-        .order("created_at", { ascending: false });
+  client.auth.onAuthStateChange(() => {
+    setTimeout(() => {
+      showSession().catch(error => message(friendlyError(error), true));
+    }, 0);
+  });
 
-      if (error) {
-        $("productCount").textContent = "";
-        setStatus("خواندن محصولات ناموفق بود: " + error.message, true);
-        return;
-      }
-
-      $("productCount").textContent =
-        "تعداد محصولات: " + data.length.toLocaleString("fa-IR");
-
-      if (!data.length) {
-        const empty = document.createElement("div");
-        empty.className = "empty";
-        empty.textContent = "هنوز محصولی اضافه نکرده‌ای. از فرم بالا اولین محصول را ثبت کن.";
-        $("products").appendChild(empty);
-        return;
-      }
-
-      const fragment = document.createDocumentFragment();
-      data.forEach((product) => fragment.appendChild(makeProductCard(product)));
-      $("products").appendChild(fragment);
-    }
-
-    $("refreshBtn").addEventListener("click", loadProducts);
-
-    (async function init() {
-      if (!window.supabase || !SUPABASE_URL || !SUPABASE_KEY) {
-        setStatus("اتصال Supabase آماده نیست. آدرس و کلید عمومی را بررسی کن.", true);
-        return;
-      }
-      await checkAdmin();
-    })();
-  </script>
+  showSession().catch(error => message(friendlyError(error), true));
+})();
+</script>
 </body>
 </html>
