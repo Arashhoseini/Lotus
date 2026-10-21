@@ -1,91 +1,1435 @@
-<section class="hero" style="padding-top:35px;">
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7f2eb">
+<meta name="description" content="لوتوس؛ فروشگاه کالای خواب و دکوراسیون">
+<title>لوتوس | فروشگاه کالای خواب و دکوراسیون</title>
 
-  <div style="
-    position:relative;
-    overflow:hidden;
-    border-radius:28px;
+<style>
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  background:#f8f4ed;
+  color:#3d3028;
+  font-family:Tahoma,Vazirmatn,Arial,sans-serif;
+  direction:rtl;
+}
+
+button,
+input,
+select,
+textarea{
+  font-family:inherit;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+/* HEADER */
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(248,244,237,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #eadfd3;
+}
+
+.header-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:14px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.logo{
+  font-size:25px;
+  font-weight:800;
+  letter-spacing:2px;
+  color:#4a3324;
+}
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+
+.admin-top,
+.cart-button{
+  border:1px solid #d9c8b8;
+  background:#fffaf5;
+  color:#4a3324;
+  padding:9px 14px;
+  border-radius:12px;
+  cursor:pointer;
+  font-size:13px;
+}
+
+.cart-button{
+  font-weight:bold;
+}
+
+/* HERO */
+.hero{
+  max-width:1200px;
+  margin:22px auto 0;
+  padding:0 20px;
+}
+
+.hero-box{
+  min-height:480px;
+  border-radius:28px;
+  overflow:hidden;
+  position:relative;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(38,27,20,.68),
+      rgba(38,27,20,.22),
+      rgba(38,27,20,.05)
+    ),
+    url("https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1500&q=85");
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  padding:55px;
+  color:white;
+}
+
+.hero-content{
+  max-width:560px;
+}
+
+.hero-eyebrow{
+  font-size:13px;
+  letter-spacing:3px;
+  margin-bottom:18px;
+  opacity:.9;
+  direction:ltr;
+  text-align:right;
+}
+
+.hero-box h1{
+  margin:0 0 18px;
+  font-size:clamp(30px,5vw,54px);
+  line-height:1.35;
+}
+
+.hero-box p{
+  margin:0 0 28px;
+  font-size:17px;
+  line-height:2;
+  color:#fff;
+}
+
+.hero-button{
+  display:inline-block;
+  background:#fff;
+  color:#4a3324;
+  padding:13px 25px;
+  border-radius:13px;
+  font-weight:bold;
+}
+
+/* MAIN */
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:35px 20px;
+}
+
+.section-title{
+  margin:0 0 18px;
+  font-size:25px;
+}
+
+.categories{
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
+  margin-bottom:20px;
+}
+
+.category{
+  border:1px solid #d8c9bb;
+  background:#fffaf5;
+  color:#4a3324;
+  border-radius:12px;
+  padding:9px 16px;
+  cursor:pointer;
+}
+
+.category.active{
+  background:#4a3324;
+  color:#fff;
+}
+
+.tools{
+  display:flex;
+  gap:10px;
+  margin:20px 0;
+}
+
+.tools input,
+.tools select{
+  border:1px solid #d9c9ba;
+  background:#fff;
+  border-radius:12px;
+  padding:12px;
+  outline:none;
+}
+
+.tools input{
+  flex:1;
+}
+
+/* PRODUCTS */
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.product{
+  background:#fff;
+  border:1px solid #eadfd5;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 7px 25px rgba(72,48,32,.06);
+  transition:.25s;
+}
+
+.product:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 30px rgba(72,48,32,.11);
+}
+
+.product-image{
+  width:100%;
+  height:230px;
+  object-fit:cover;
+  background:#f3eee8;
+}
+
+.product-info{
+  padding:15px;
+}
+
+.product-name{
+  font-weight:bold;
+  font-size:16px;
+  margin-bottom:8px;
+}
+
+.product-price{
+  color:#6a452e;
+  font-weight:bold;
+  margin-bottom:12px;
+}
+
+.product-actions{
+  display:flex;
+  gap:8px;
+}
+
+.product-actions button{
+  flex:1;
+  border:0;
+  border-radius:10px;
+  padding:10px;
+  cursor:pointer;
+}
+
+.detail-btn{
+  background:#f2e9df;
+  color:#4a3324;
+}
+
+.add-btn{
+  background:#4a3324;
+  color:white;
+}
+
+/* IMAGE SECTIONS */
+.image-section{
+  max-width:1200px;
+  margin:45px auto;
+  padding:0 20px;
+}
+
+.image-card{
+  min-height:430px;
+  border-radius:26px;
+  overflow:hidden;
+  position:relative;
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+}
+
+.collection-card{
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(35,27,21,.7),
+      rgba(35,27,21,.28),
+      rgba(35,27,21,.05)
+    ),
+    url("https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1300&q=85");
+}
+
+.about-card{
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(35,27,21,.7),
+      rgba(35,27,21,.28),
+      rgba(35,27,21,.05)
+    ),
+    url("https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=80");
+}
+
+.image-content{
+  color:white;
+  max-width:560px;
+  padding:50px;
+}
+
+.image-content small{
+  letter-spacing:3px;
+  font-size:12px;
+}
+
+.image-content h2{
+  font-size:34px;
+  margin:15px 0;
+}
+
+.image-content p{
+  line-height:2;
+  font-size:16px;
+  margin-bottom:25px;
+}
+
+.image-button{
+  display:inline-block;
+  background:white;
+  color:#4a3324;
+  padding:12px 22px;
+  border-radius:12px;
+  font-weight:bold;
+}
+
+/* MODAL */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  z-index:3000;
+  padding:20px;
+  overflow:auto;
+}
+
+.modal.show{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.modal-box{
+  width:min(650px,100%);
+  max-height:90vh;
+  overflow:auto;
+  background:#fff;
+  border-radius:20px;
+  padding:22px;
+  position:relative;
+}
+
+.close{
+  position:absolute;
+  left:15px;
+  top:12px;
+  width:35px;
+  height:35px;
+  border:0;
+  border-radius:50%;
+  background:#f0e8df;
+  cursor:pointer;
+  font-size:20px;
+}
+
+.detail-image{
+  width:100%;
+  max-height:380px;
+  object-fit:cover;
+  border-radius:15px;
+  margin-bottom:18px;
+}
+
+.detail-title{
+  font-size:25px;
+  margin-bottom:10px;
+}
+
+.detail-price{
+  font-weight:bold;
+  color:#6a452e;
+  margin:15px 0;
+}
+
+.detail-description{
+  line-height:2;
+  color:#66584e;
+}
+
+/* CART */
+.cart-item{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  padding:12px 0;
+  border-bottom:1px solid #eee4db;
+}
+
+.cart-item img{
+  width:70px;
+  height:70px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+.cart-item-info{
+  flex:1;
+}
+
+.qty{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:8px;
+}
+
+.qty button{
+  width:28px;
+  height:28px;
+  border:1px solid #d7c7b8;
+  background:#fff;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.remove{
+  border:0;
+  background:#f8e7e3;
+  color:#8a3e32;
+  padding:7px 10px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.cart-total{
+  font-size:18px;
+  font-weight:bold;
+  margin:20px 0;
+}
+
+.checkout-form{
+  display:grid;
+  gap:10px;
+}
+
+.checkout-form input,
+.checkout-form textarea{
+  width:100%;
+  border:1px solid #d9c9ba;
+  border-radius:11px;
+  padding:12px;
+  outline:none;
+}
+
+.checkout-form textarea{
+  min-height:90px;
+  resize:vertical;
+}
+
+.submit-order{
+  background:#4a3324;
+  color:#fff;
+  border:0;
+  border-radius:12px;
+  padding:13px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* FOOTER */
+.site-footer{
+  background:#4a3324;
+  color:#f8eee5;
+  margin-top:60px;
+}
+
+.footer-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:45px 20px;
+  display:grid;
+  grid-template-columns:1.25fr 1fr 1fr 1fr;
+  gap:30px;
+}
+
+.footer-column h3{
+  margin-top:0;
+  margin-bottom:15px;
+  font-size:17px;
+}
+
+.footer-column p,
+.footer-column a{
+  color:#eadbd0;
+  line-height:2;
+  font-size:13px;
+}
+
+.footer-column a{
+  display:block;
+}
+
+.admin-footer{
+  display:inline-block !important;
+  background:#7a543b;
+  color:#fff !important;
+  padding:7px 12px;
+  border-radius:8px;
+  margin-top:10px;
+  font-size:11px !important;
+}
+
+.copyright{
+  border-top:1px solid rgba(255,255,255,.12);
+  text-align:center;
+  padding:18px;
+  color:#d9c8bb;
+  font-size:12px;
+}
+
+/* EMPTY */
+.empty{
+  grid-column:1/-1;
+  text-align:center;
+  padding:50px 20px;
+  color:#806f62;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .products{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .footer-inner{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:650px){
+  .header-inner{
+    padding:11px 13px;
+  }
+
+  .logo{
+    font-size:21px;
+  }
+
+  .admin-top,
+  .cart-button{
+    padding:8px 10px;
+    font-size:11px;
+  }
+
+  .hero{
+    padding:0 12px;
+    margin-top:12px;
+  }
+
+  .hero-box{
     min-height:430px;
-    background:#eee3d5;
-    box-shadow:0 12px 35px rgba(80,55,35,.10);
-  ">
+    padding:30px 25px;
+    border-radius:20px;
+    background-position:center;
+  }
 
-    <img
-      src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1500&q=85"
-      alt="اتاق خواب آرام و شیک"
-      style="
-        width:100%;
-        height:430px;
-        object-fit:cover;
-        display:block;
-      "
+  .hero-box h1{
+    font-size:30px;
+  }
+
+  .hero-box p{
+    font-size:14px;
+  }
+
+  .container{
+    padding:25px 12px;
+  }
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+  }
+
+  .product-image{
+    height:180px;
+  }
+
+  .product-info{
+    padding:11px;
+  }
+
+  .product-name{
+    font-size:14px;
+  }
+
+  .product-actions{
+    flex-direction:column;
+  }
+
+  .tools{
+    flex-direction:column;
+  }
+
+  .image-section{
+    padding:0 12px;
+    margin:30px auto;
+  }
+
+  .image-card{
+    min-height:400px;
+    border-radius:20px;
+  }
+
+  .image-content{
+    padding:30px 25px;
+  }
+
+  .image-content h2{
+    font-size:27px;
+  }
+
+  .footer-inner{
+    grid-template-columns:1fr;
+    padding:35px 20px;
+  }
+}
+
+@media(max-width:380px){
+  .products{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">LOTUS</a>
+
+    <div class="header-actions">
+      <a class="admin-top" href="admin.html">مدیریت</a>
+      <button class="cart-button" onclick="openCart()">
+        🛒 سبد خرید
+        <span id="cartCount">۰</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-box">
+    <div class="hero-content">
+      <div class="hero-eyebrow">THE ART OF COMFORT</div>
+
+      <h1>زیبایی را به اتاق خواب خود بیاورید</h1>
+
+      <p>
+        کالای خواب و انتخاب‌هایی زیبا برای خانه‌ای گرم،
+        آرام و دلنشین.
+      </p>
+
+      <a href="#products" class="hero-button">
+        مشاهده محصولات
+      </a>
+    </div>
+  </div>
+</section>
+
+<main class="container" id="products">
+
+  <h2 class="section-title">محصولات لوتوس</h2>
+
+  <div id="categories" class="categories"></div>
+
+  <div class="tools">
+    <input
+      id="searchInput"
+      type="search"
+      placeholder="جستجوی محصول..."
+      oninput="renderProducts()"
     >
 
-    <div style="
-      position:absolute;
-      inset:0;
-      background:linear-gradient(
-        90deg,
-        rgba(30,20,15,.62),
-        rgba(30,20,15,.10),
-        rgba(30,20,15,.05)
-      );
-    "></div>
+    <select id="sortSelect" onchange="renderProducts()">
+      <option value="new">جدیدترین</option>
+      <option value="low">ارزان‌ترین</option>
+      <option value="high">گران‌ترین</option>
+      <option value="name">نام محصول</option>
+    </select>
+  </div>
 
-    <div style="
-      position:absolute;
-      inset:0;
-      display:flex;
-      align-items:center;
-      padding:35px;
-      color:#fff;
-    ">
+  <div id="productGrid" class="products">
+    <div class="empty">در حال بارگذاری محصولات...</div>
+  </div>
 
-      <div style="max-width:560px;">
+</main>
 
-        <div style="
-          font-size:12px;
-          letter-spacing:3px;
-          margin-bottom:12px;
-          opacity:.9;
-        ">
-          THE ART OF COMFORT
-        </div>
+<!-- COLLECTION IMAGE -->
+<section class="image-section">
+  <div class="image-card collection-card">
+    <div class="image-content">
+      <small>LOTUS HOME</small>
 
-        <h1 style="
-          color:#fff;
-          font-size:clamp(28px,5vw,46px);
-          margin-bottom:12px;
-        ">
-          زیبایی را به اتاق خواب خود بیاورید
-        </h1>
+      <h2>خانه‌ای به زیبایی سلیقه شما</h2>
 
-        <p style="
-          color:#fff;
-          max-width:500px;
-          margin:0 0 22px;
-          font-size:16px;
-        ">
-          کالای خواب و انتخاب‌هایی زیبا برای خانه‌ای گرم،
-          آرام و دلنشین.
-        </p>
+      <p>
+        با انتخاب جزئیات هماهنگ و زیبا، فضایی دلنشین
+        برای استراحت و آرامش خود بسازید.
+      </p>
 
-        <a
-          href="#products"
-          style="
-            display:inline-block;
-            background:#6b4a32;
-            color:#fff;
-            padding:11px 22px;
-            border-radius:12px;
-          "
-        >
-          مشاهده محصولات
-        </a>
+      <a href="#products" class="image-button">
+        دیدن مجموعه
+      </a>
+    </div>
+  </div>
+</section>
 
-      </div>
+<!-- ABOUT IMAGE -->
+<section class="image-section">
+  <div class="image-card about-card">
+    <div class="image-content">
+      <small>ABOUT LOTUS</small>
 
+      <h2>داستان لوتوس</h2>
+
+      <p>
+        لوتوس با الهام از زیبایی، آرامش و سادگی طراحی شده است؛
+        مجموعه‌ای برای انتخاب کالای خواب و اکسسوری‌های اتاق خواب،
+        متناسب با خانه‌ای گرم و دلنشین.
+      </p>
+
+      <a href="#products" class="image-button">
+        مشاهده محصولات
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT DETAIL MODAL -->
+<div id="detailModal" class="modal" onclick="modalOutside(event,'detailModal')">
+  <div class="modal-box">
+    <button class="close" onclick="closeDetail()">×</button>
+
+    <div id="detailContent"></div>
+  </div>
+</div>
+
+<!-- CART MODAL -->
+<div id="cartModal" class="modal" onclick="modalOutside(event,'cartModal')">
+  <div class="modal-box">
+    <button class="close" onclick="closeCart()">×</button>
+
+    <h2>سبد خرید</h2>
+
+    <div id="cartItems"></div>
+
+    <div id="cartTotal" class="cart-total"></div>
+
+    <div class="checkout-form">
+      <input id="customerName" placeholder="نام و نام خانوادگی">
+      <input id="customerPhone" placeholder="شماره تماس">
+      <textarea id="customerAddress" placeholder="آدرس کامل"></textarea>
+      <textarea id="orderNote" placeholder="توضیحات سفارش (اختیاری)"></textarea>
+
+      <button class="submit-order" onclick="submitOrder()">
+        ثبت سفارش
+      </button>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+
+  <div class="footer-inner">
+
+    <div class="footer-column">
+      <h3>لوتوس</h3>
+      <p>
+        فروشگاه کالای خواب و دکوراسیون با انتخاب‌هایی
+        زیبا برای خانه‌ای گرم، آرام و دلنشین.
+      </p>
+    </div>
+
+    <div class="footer-column">
+      <h3>اطلاعات فروشگاه</h3>
+      <p>📍 آدرس فروشگاه شما</p>
+      <p>☎ ۰۹xxxxxxxxx</p>
+      <p>پشتیبانی و پاسخگویی به مشتریان</p>
+    </div>
+
+    <div class="footer-column">
+      <h3>خدمات مشتریان</h3>
+      <a href="#">پیگیری سفارش</a>
+      <a href="#">شرایط و قوانین</a>
+      <a href="#">حریم خصوصی</a>
+      <a href="#">درباره ما</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>مدیریت فروشگاه</h3>
+      <p>
+        مدیریت محصولات و سفارش‌های فروشگاه
+      </p>
+
+      <a class="admin-footer" href="admin.html">
+        پنل مدیریت
+      </a>
     </div>
 
   </div>
 
-</section>
+  <div class="copyright">
+    © تمامی حقوق این فروشگاه برای لوتوس محفوظ است.
+  </div>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+const SUPABASE_URL = "https://lmkeqrflggxovjqnupll.supabase.co";
+const SUPABASE_KEY = "sb_publishable_DQCI-4BHUWcRSQjphryqKQ_aHu35b76";
+
+const supabaseClient = supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
+let products = [];
+let currentCategory = "all";
+
+let cart = JSON.parse(
+  localStorage.getItem("lotusCart") || "[]"
+);
+
+/* LOAD PRODUCTS */
+async function loadProducts(){
+
+  const grid = document.getElementById("productGrid");
+
+  try{
+
+    const { data, error } = await supabaseClient
+      .from("products")
+      .select("*")
+      .eq("active", true)
+      .order("created_at", { ascending:false });
+
+    if(error) throw error;
+
+    products = data || [];
+
+    buildCategories();
+    renderProducts();
+    updateCartCount();
+
+  }catch(error){
+
+    console.error(error);
+
+    grid.innerHTML = `
+      <div class="empty">
+        دریافت محصولات با خطا مواجه شد.
+      </div>
+    `;
+  }
+}
+
+/* CATEGORIES */
+function buildCategories(){
+
+  const box = document.getElementById("categories");
+
+  const categories = [
+    ...new Set(
+      products
+        .map(p => p.category)
+        .filter(Boolean)
+    )
+  ];
+
+  box.innerHTML = `
+    <button
+      class="category ${currentCategory==="all" ? "active":""}"
+      onclick="setCategory('all')">
+      همه
+    </button>
+  `;
+
+  categories.forEach(category => {
+
+    box.innerHTML += `
+      <button
+        class="category ${currentCategory===category ? "active":""}"
+        onclick="setCategory(${JSON.stringify(category)})">
+        ${escapeHtml(category)}
+      </button>
+    `;
+  });
+}
+
+function setCategory(category){
+
+  currentCategory = category;
+
+  buildCategories();
+  renderProducts();
+}
+
+/* RENDER PRODUCTS */
+function renderProducts(){
+
+  const grid = document.getElementById("productGrid");
+
+  const search =
+    document.getElementById("searchInput").value
+      .trim()
+      .toLowerCase();
+
+  const sort =
+    document.getElementById("sortSelect").value;
+
+  let list = products.filter(product => {
+
+    const matchesCategory =
+      currentCategory === "all" ||
+      product.category === currentCategory;
+
+    const text = (
+      (product.name || "") +
+      " " +
+      (product.description || "")
+    ).toLowerCase();
+
+    const matchesSearch =
+      !search || text.includes(search);
+
+    return matchesCategory && matchesSearch;
+  });
+
+  if(sort === "low"){
+    list.sort((a,b) =>
+      Number(a.price || 0) - Number(b.price || 0)
+    );
+  }
+
+  if(sort === "high"){
+    list.sort((a,b) =>
+      Number(b.price || 0) - Number(a.price || 0)
+    );
+  }
+
+  if(sort === "name"){
+    list.sort((a,b) =>
+      (a.name || "").localeCompare(
+        b.name || "",
+        "fa"
+      )
+    );
+  }
+
+  if(!list.length){
+
+    grid.innerHTML = `
+      <div class="empty">
+        محصولی پیدا نشد.
+      </div>
+    `;
+
+    return;
+  }
+
+  grid.innerHTML = list.map(product => {
+
+    const image =
+      product.image_url ||
+      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80";
+
+    return `
+      <article class="product">
+
+        <img
+          class="product-image"
+          src="${escapeHtml(image)}"
+          alt="${escapeHtml(product.name || "محصول لوتوس")}"
+          loading="lazy"
+        >
+
+        <div class="product-info">
+
+          <div class="product-name">
+            ${escapeHtml(product.name || "")}
+          </div>
+
+          <div class="product-price">
+            ${formatPrice(product.price)}
+          </div>
+
+          <div class="product-actions">
+
+            <button
+              class="detail-btn"
+              onclick="openDetail(${Number(product.id)})">
+              جزئیات
+            </button>
+
+            <button
+              class="add-btn"
+              onclick="addToCart(${Number(product.id)})">
+              افزودن
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+    `;
+
+  }).join("");
+}
+
+/* DETAIL */
+function openDetail(id){
+
+  const product =
+    products.find(p => Number(p.id) === Number(id));
+
+  if(!product) return;
+
+  const image =
+    product.image_url ||
+    "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=80";
+
+  document.getElementById("detailContent").innerHTML = `
+
+    <img
+      class="detail-image"
+      src="${escapeHtml(image)}"
+      alt="${escapeHtml(product.name || "")}"
+    >
+
+    <div class="detail-title">
+      ${escapeHtml(product.name || "")}
+    </div>
+
+    <div class="detail-price">
+      ${formatPrice(product.price)}
+    </div>
+
+    <div class="detail-description">
+      ${escapeHtml(product.description || "توضیحی برای این محصول ثبت نشده است.")}
+    </div>
+
+    <br>
+
+    <button
+      class="submit-order"
+      style="width:100%"
+      onclick="addToCart(${Number(product.id)});closeDetail();openCart();">
+      افزودن به سبد خرید
+    </button>
+  `;
+
+  document.getElementById("detailModal")
+    .classList.add("show");
+}
+
+function closeDetail(){
+  document.getElementById("detailModal")
+    .classList.remove("show");
+}
+
+/* CART */
+function addToCart(id){
+
+  const product =
+    products.find(p => Number(p.id) === Number(id));
+
+  if(!product) return;
+
+  const existing =
+    cart.find(item => Number(item.id) === Number(id));
+
+  if(existing){
+
+    existing.qty += 1;
+
+  }else{
+
+    cart.push({
+      id:product.id,
+      name:product.name,
+      price:Number(product.price || 0),
+      image_url:product.image_url || "",
+      qty:1
+    });
+  }
+
+  saveCart();
+
+  updateCartCount();
+
+  renderCart();
+}
+
+function saveCart(){
+
+  localStorage.setItem(
+    "lotusCart",
+    JSON.stringify(cart)
+  );
+}
+
+function updateCartCount(){
+
+  const count =
+    cart.reduce(
+      (sum,item) => sum + Number(item.qty || 0),
+      0
+    );
+
+  document.getElementById("cartCount")
+    .textContent = toPersianNumber(count);
+}
+
+function openCart(){
+
+  renderCart();
+
+  document.getElementById("cartModal")
+    .classList.add("show");
+}
+
+function closeCart(){
+
+  document.getElementById("cartModal")
+    .classList.remove("show");
+}
+
+function renderCart(){
+
+  const box =
+    document.getElementById("cartItems");
+
+  const totalBox =
+    document.getElementById("cartTotal");
+
+  if(!cart.length){
+
+    box.innerHTML = `
+      <div class="empty">
+        سبد خرید شما خالی است.
+      </div>
+    `;
+
+    totalBox.innerHTML = "";
+
+    return;
+  }
+
+  box.innerHTML = cart.map(item => {
+
+    const image =
+      item.image_url ||
+      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=500&q=80";
+
+    return `
+      <div class="cart-item">
+
+        <img
+          src="${escapeHtml(image)}"
+          alt="${escapeHtml(item.name)}"
+        >
+
+        <div class="cart-item-info">
+
+          <strong>
+            ${escapeHtml(item.name)}
+          </strong>
+
+          <div>
+            ${formatPrice(item.price)}
+          </div>
+
+          <div class="qty">
+
+            <button
+              onclick="changeQty(${Number(item.id)},1)">
+              +
+            </button>
+
+            <span>
+              ${toPersianNumber(item.qty)}
+            </span>
+
+            <button
+              onclick="changeQty(${Number(item.id)},-1)">
+              −
+            </button>
+
+          </div>
+
+        </div>
+
+        <button
+          class="remove"
+          onclick="removeFromCart(${Number(item.id)})">
+          حذف
+        </button>
+
+      </div>
+    `;
+
+  }).join("");
+
+  const total =
+    cart.reduce(
+      (sum,item) =>
+        sum +
+        Number(item.price || 0) *
+        Number(item.qty || 0),
+      0
+    );
+
+  totalBox.innerHTML =
+    "مجموع: " + formatPrice(total);
+}
+
+function changeQty(id,amount){
+
+  const item =
+    cart.find(
+      item => Number(item.id) === Number(id)
+    );
+
+  if(!item) return;
+
+  item.qty += amount;
+
+  if(item.qty <= 0){
+
+    cart =
+      cart.filter(
+        item => Number(item.id) !== Number(id)
+      );
+  }
+
+  saveCart();
+  updateCartCount();
+  renderCart();
+}
+
+function removeFromCart(id){
+
+  cart =
+    cart.filter(
+      item => Number(item.id) !== Number(id)
+    );
+
+  saveCart();
+  updateCartCount();
+  renderCart();
+}
+
+/* ORDER */
+async function submitOrder(){
+
+  if(!cart.length){
+
+    alert("سبد خرید خالی است.");
+    return;
+  }
+
+  const customerName =
+    document.getElementById("customerName")
+      .value.trim();
+
+  const customerPhone =
+    document.getElementById("customerPhone")
+      .value.trim();
+
+  const customerAddress =
+    document.getElementById("customerAddress")
+      .value.trim();
+
+  const note =
+    document.getElementById("orderNote")
+      .value.trim();
+
+  if(!customerName ||
+     !customerPhone ||
+     !customerAddress){
+
+    alert("لطفاً نام، شماره تماس و آدرس را وارد کنید.");
+    return;
+  }
+
+  const total =
+    cart.reduce(
+      (sum,item) =>
+        sum +
+        Number(item.price || 0) *
+        Number(item.qty || 0),
+      0
+    );
+
+  const items =
+    cart.map(item => ({
+      id:item.id,
+      name:item.name,
+      price:item.price,
+      qty:item.qty
+    }));
+
+  try{
+
+    const { error } =
+      await supabaseClient
+        .from("orders")
+        .insert([{
+          customer_name:customerName,
+          customer_phone:customerPhone,
+          customer_address:customerAddress,
+          note:note,
+          items:items,
+          total:total,
+          status:"pending"
+        }])
+        .select();
+
+    if(error) throw error;
+
+    alert("سفارش شما با موفقیت ثبت شد.");
+
+    cart = [];
+
+    saveCart();
+    updateCartCount();
+    renderCart();
+
+    document.getElementById("customerName").value = "";
+    document.getElementById("customerPhone").value = "";
+    document.getElementById("customerAddress").value = "";
+    document.getElementById("orderNote").value = "";
+
+    closeCart();
+
+  }catch(error){
+
+    console.error(error);
+
+    alert(
+      "ثبت سفارش انجام نشد. لطفاً دوباره تلاش کنید."
+    );
+  }
+}
+
+/* MODAL */
+function modalOutside(event,id){
+
+  if(event.target.id === id){
+
+    document.getElementById(id)
+      .classList.remove("show");
+  }
+}
+
+/* FORMAT */
+function formatPrice(price){
+
+  const number =
+    Number(price || 0);
+
+  return (
+    toPersianNumber(
+      number.toLocaleString("en-US")
+    ) +
+    " تومان"
+  );
+}
+
+function toPersianNumber(value){
+
+  return String(value)
+    .replace(/0/g,"۰")
+    .replace(/1/g,"۱")
+    .replace(/2/g,"۲")
+    .replace(/3/g,"۳")
+    .replace(/4/g,"۴")
+    .replace(/5/g,"۵")
+    .replace(/6/g,"۶")
+    .replace(/7/g,"۷")
+    .replace(/8/g,"۸")
+    .replace(/9/g,"۹");
+}
+
+/* SECURITY */
+function escapeHtml(value){
+
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+}
+
+/* START */
+loadProducts();
+updateCartCount();
+</script>
+
+</body>
+</html>
