@@ -7,27 +7,22 @@
 <meta name="theme-color" content="#f8f4ed">
 <meta name="description" content="لوتوس؛ تجربه‌ای زیبا از خرید کالای خواب و دکوراسیون">
 <title>لوتوس | فروشگاه کالای خواب</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://images.unsplash.com">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <style>
-:root{
- --bg:#f8f5ef;--paper:#fffdf9;--ink:#38291f;--gold:#b08b5e;
- --muted:#867667;--line:#e9dfd2;--shadow:0 12px 38px #49352210;
-}
+:root{--bg:#f8f5ef;--paper:#fffdf9;--ink:#38291f;--gold:#b08b5e;--muted:#867667;--line:#e9dfd2;--shadow:0 12px 38px #49352210}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:95px}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:Tahoma,Arial,sans-serif;line-height:1.9}
 button,input,select,textarea{font:inherit}
 button,a{-webkit-tap-highlight-color:transparent}
 button{cursor:pointer}
+button:disabled{opacity:.5;cursor:not-allowed}
 a{text-decoration:none;color:inherit}
 img{display:block;max-width:100%}
 .wrap{width:min(1200px,92%);margin:auto}
-.top{background:var(--ink);color:#f8ead8;text-align:center;padding:6px 10px;font-size:11px;letter-spacing:.3px}
-header{position:sticky;top:0;z-index:10;background:#f8f5efeF;backdrop-filter:blur(15px);border-bottom:1px solid var(--line)}
+.top{background:var(--ink);color:#f8ead8;text-align:center;padding:6px 10px;font-size:11px}
+header{position:sticky;top:0;z-index:10;background:#f8f5efed;backdrop-filter:blur(15px);border-bottom:1px solid var(--line)}
 .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
 .brand-icon{width:43px;height:43px;border:1px solid var(--gold);border-radius:50% 50% 50% 9px;display:grid;place-items:center;color:var(--gold);font:italic 26px Georgia,serif}
@@ -38,7 +33,7 @@ header{position:sticky;top:0;z-index:10;background:#f8f5efeF;backdrop-filter:blu
 .nav-actions{display:flex;gap:7px}
 .nav-btn{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:8px 12px;color:var(--ink);font-size:11px;white-space:nowrap}
 .nav-btn:hover{border-color:var(--gold)}
-.hero{position:relative;min-height:450px;margin-top:22px;overflow:hidden;border-radius:22px;background:#77624e;color:#fff;display:flex;align-items:center;box-shadow:var(--shadow)}
+.hero{position:relative;min-height:450px;margin-top:22px;overflow:hidden;border-radius:22px;background:#77624e;color:white;display:flex;align-items:center;box-shadow:var(--shadow)}
 .hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(270deg,#241910e8,#24191090 52%,#24191010)}
 .hero-content{position:relative;z-index:1;max-width:610px;padding:clamp(25px,5vw,65px)}
@@ -46,8 +41,7 @@ header{position:sticky;top:0;z-index:10;background:#f8f5efeF;backdrop-filter:blu
 .hero h1{font-weight:500;font-size:clamp(28px,4vw,48px);line-height:1.8;margin:12px 0}
 .hero p{font-size:13px;color:#f4e9dc;line-height:2.4;margin:0 0 23px}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:43px;border:0;border-radius:10px;background:var(--ink);color:white;padding:10px 20px;font-size:12px}
-.btn.gold{background:var(--gold);color:white}
-.btn:hover{filter:brightness(.94)}
+.btn.gold{background:var(--gold)}
 .benefits{display:grid;grid-template-columns:repeat(3,1fr);margin-top:17px;padding:17px 5px;background:var(--paper);border:1px solid var(--line);border-radius:15px}
 .benefit{text-align:center;padding:0 8px;font-size:11px}
 .benefit+.benefit{border-right:1px solid var(--line)}
@@ -59,7 +53,7 @@ header{position:sticky;top:0;z-index:10;background:#f8f5efeF;backdrop-filter:blu
 .heading h2{font-weight:500;font-size:26px;margin:5px 0}
 .heading p{font-size:12px;color:var(--muted);margin:0}
 .categories{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
-.category{border:1px solid var(--line);border-radius:15px;background:var(--paper);padding:18px 10px;text-align:center;color:var(--ink);transition:transform .2s,border-color .2s}
+.category{border:1px solid var(--line);border-radius:15px;background:var(--paper);padding:18px 10px;text-align:center;color:var(--ink);transition:.2s}
 .category:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:var(--shadow)}
 .category span{font-size:27px}
 .category h3{font-size:12px;font-weight:normal;margin:5px 0 0}
@@ -70,7 +64,6 @@ header{position:sticky;top:0;z-index:10;background:#f8f5efeF;backdrop-filter:blu
 .slider-tools p{font-size:11px;color:var(--muted);margin:0}
 .slider-buttons{display:flex;gap:7px}
 .slider-buttons button{width:37px;height:37px;border:1px solid var(--line);border-radius:50%;background:var(--paper);color:var(--ink);font-size:18px}
-.slider-buttons button:hover{border-color:var(--gold)}
 .products{display:flex;gap:15px;overflow-x:auto;overflow-y:hidden;padding:4px 2px 17px;scroll-snap-type:x mandatory;scroll-behavior:smooth;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:#c9ae8c transparent}
 .products::-webkit-scrollbar{height:5px}
 .products::-webkit-scrollbar-thumb{background:#c9ae8c;border-radius:8px}
@@ -86,7 +79,6 @@ header{position:sticky;top:0;z-index:10;background:#f8f5efeF;backdrop-filter:blu
 .productfoot{display:flex;align-items:center;justify-content:space-between;gap:7px;flex-wrap:wrap;margin-top:auto;padding-top:8px}
 .price{font-size:12px;font-weight:bold}
 .add{background:var(--ink);color:white;border:0;border-radius:8px;padding:8px 10px;font-size:10px;min-height:36px}
-.add:disabled{opacity:.45;cursor:not-allowed}
 .empty,.loading{width:100%;text-align:center;padding:26px 14px;color:var(--muted);font-size:12px;overflow-wrap:anywhere}
 .collection{position:relative;min-height:250px;margin-top:38px;border-radius:20px;overflow:hidden;display:flex;align-items:center;background:#e5d6c3}
 .collection>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -121,7 +113,6 @@ footer{margin-top:50px;background:var(--ink);color:white;padding:34px 0 17px}
 .drawer-summary{border-top:1px solid var(--line);padding-top:13px}
 .drawer-summary p{display:flex;justify-content:space-between;font-size:12px}
 .full{width:100%;min-height:45px;background:var(--ink);color:white;border:0;border-radius:10px;padding:10px;font-size:12px}
-.full:disabled{opacity:.6}
 .modal{display:none;position:fixed;inset:0;background:#0008;z-index:30;align-items:center;justify-content:center;padding:14px;overflow:auto}
 .modal.open{display:flex}
 .modalbox{background:var(--paper);padding:21px;width:100%;max-width:470px;max-height:94vh;overflow:auto;border-radius:17px}
@@ -134,104 +125,53 @@ footer{margin-top:50px;background:var(--ink);color:white;padding:34px 0 17px}
 .row{display:flex;gap:9px}
 .row>*{flex:1;min-width:0}
 .adminlink{position:fixed;bottom:10px;right:10px;background:var(--ink);color:white;padding:8px 13px;border-radius:25px;font-size:10px;z-index:9}
-@media(max-width:850px){
- .navlinks{gap:12px}
- .product{flex-basis:calc((100% - 30px)/3)}
-}
+@media(max-width:850px){.navlinks{gap:12px}.product{flex-basis:calc((100% - 30px)/3)}}
 @media(max-width:600px){
- .wrap{width:92%}
- .nav{min-height:65px;gap:7px}
- .brand-icon{width:35px;height:35px;font-size:21px}
- .brand-name{font-size:21px;letter-spacing:3px}
- .brand-sub{font-size:8px}
- .navlinks{display:none}
- .nav-actions{margin-right:auto;gap:5px}
- .nav-btn{font-size:10px;padding:8px}
+ .wrap{width:92%}.nav{min-height:65px;gap:7px}.brand-icon{width:35px;height:35px;font-size:21px}
+ .brand-name{font-size:21px;letter-spacing:3px}.brand-sub{font-size:8px}.navlinks{display:none}
+ .nav-actions{margin-right:auto;gap:5px}.nav-btn{font-size:10px;padding:8px}
  .hero{margin-top:13px;min-height:345px;border-radius:16px}
  .hero:after{background:linear-gradient(270deg,#241910e8,#2419108a 76%,#24191025)}
- .hero-content{padding:22px;width:97%}
- .hero h1{font-size:28px}
- .hero p{font-size:12px}
- .benefits{padding:12px 3px}
- .benefit{font-size:10px;padding:0 4px}
- .benefit small{font-size:9px}
- .section{padding-top:37px}
- .heading h2{font-size:22px}
- .categories{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
- .category{padding:13px 7px}
- .toolbar{grid-template-columns:1fr 1fr;gap:8px;padding:9px;margin:15px 0}
- .toolbar input{grid-column:1/-1}
+ .hero-content{padding:22px;width:97%}.hero h1{font-size:28px}.hero p{font-size:12px}
+ .benefits{padding:12px 3px}.benefit{font-size:10px;padding:0 4px}.benefit small{font-size:9px}
+ .section{padding-top:37px}.heading h2{font-size:22px}
+ .categories{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.category{padding:13px 7px}
+ .toolbar{grid-template-columns:1fr 1fr;gap:8px;padding:9px;margin:15px 0}.toolbar input{grid-column:1/-1}
  .toolbar select{font-size:11px;padding:0 7px}
- .product{flex-basis:calc((100% - 10px)/2);border-radius:12px}
- .products{gap:10px;padding-bottom:14px}
- .info{padding:9px;gap:5px}
- .info h3{font-size:12px}
- .info p{font-size:10px}
- .productfoot{flex-direction:column;align-items:stretch}
- .price{font-size:11px}
- .add{width:100%}
- .collection{min-height:225px;margin-top:28px}
- .collection-content{padding:20px;width:94%}
- .collection-content h2{font-size:21px}
- .about{grid-template-columns:1fr;gap:16px}
- .about img{height:245px;order:-1}
- .footergrid{grid-template-columns:1fr;gap:12px}
+ .product{flex-basis:calc((100% - 10px)/2);border-radius:12px}.products{gap:10px;padding-bottom:14px}
+ .info{padding:9px;gap:5px}.info h3{font-size:12px}.info p{font-size:10px}
+ .productfoot{flex-direction:column;align-items:stretch}.price{font-size:11px}.add{width:100%}
+ .collection{min-height:225px;margin-top:28px}.collection-content{padding:20px;width:94%}
+ .collection-content h2{font-size:21px}.about{grid-template-columns:1fr;gap:16px}
+ .about img{height:245px;order:-1}.footergrid{grid-template-columns:1fr;gap:12px}
  .drawer{padding:14px;padding-bottom:max(14px,env(safe-area-inset-bottom))}
- .cartitem{grid-template-columns:49px minmax(0,1fr) auto;gap:7px}
- .cartitem img{width:49px;height:49px}
- .row{flex-wrap:wrap}
- .row>*{flex-basis:100%}
- .adminlink{bottom:8px;right:8px}
+ .cartitem{grid-template-columns:49px minmax(0,1fr) auto;gap:7px}.cartitem img{width:49px;height:49px}
+ .row{flex-wrap:wrap}.row>*{flex-basis:100%}.adminlink{bottom:8px;right:8px}
 }
-@media(prefers-reduced-motion:reduce){
- html{scroll-behavior:auto}
- *,*::before,*::after{transition:none!important;animation:none!important}
-}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
 </style>
 </head>
-
 <body>
 <div class="top">زیبایی در جزئیات، آرامش در خانه ✦ فروشگاه لوتوس</div>
-
 <header>
  <div class="wrap nav">
-  <a href="#home" class="brand">
-   <span class="brand-icon">L</span>
-   <span><span class="brand-name">LOTUS</span><span class="brand-sub">HOME COLLECTION</span></span>
-  </a>
-  <nav class="navlinks">
-   <a href="#home">خانه</a><a href="#categories">دسته‌بندی‌ها</a>
-   <a href="#products">محصولات</a><a href="#about">درباره ما</a>
-  </nav>
-  <div class="nav-actions">
-   <button class="nav-btn" id="searchButton">جست‌وجو</button>
-   <button class="nav-btn" id="cartButton">سبد خرید (<span id="cartCount">۰</span>)</button>
-  </div>
+  <a href="#home" class="brand"><span class="brand-icon">L</span><span><span class="brand-name">LOTUS</span><span class="brand-sub">HOME COLLECTION</span></span></a>
+  <nav class="navlinks"><a href="#home">خانه</a><a href="#categories">دسته‌بندی‌ها</a><a href="#products">محصولات</a><a href="#about">درباره ما</a></nav>
+  <div class="nav-actions"><button class="nav-btn" id="searchButton">جست‌وجو</button><button class="nav-btn" id="cartButton">سبد خرید (<span id="cartCount">۰</span>)</button></div>
  </div>
 </header>
-
 <main>
  <section class="hero wrap" id="home">
   <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1600&q=85" alt="اتاق خواب آرام و شیک">
-  <div class="hero-content">
-   <span class="eyebrow">THE ART OF COMFORT</span>
-   <h1>زیبایی را به اتاق خواب خود بیاورید</h1>
-   <p>کالای خواب و انتخاب‌هایی زیبا برای خانه‌ای گرم، آرام و دلنشین.</p>
-   <a class="btn gold" href="#products">مشاهده محصولات</a>
-  </div>
+  <div class="hero-content"><span class="eyebrow">THE ART OF COMFORT</span><h1>زیبایی را به اتاق خواب خود بیاورید</h1><p>کالای خواب و انتخاب‌هایی زیبا برای خانه‌ای گرم، آرام و دلنشین.</p><a class="btn gold" href="#products">مشاهده محصولات</a></div>
  </section>
-
  <div class="wrap benefits">
   <div class="benefit">✧<b>انتخاب‌های زیبا و خاص</b><small>برای سلیقه شما</small></div>
   <div class="benefit">♡<b>توجه به کیفیت</b><small>آرامش در جزئیات</small></div>
   <div class="benefit">❋<b>خرید آسان</b><small>ساده و راحت</small></div>
  </div>
-
  <section class="section wrap" id="categories">
-  <div class="heading">
-   <small>EXPLORE LOTUS</small><h2>دسته‌بندی محصولات</h2>
-   <p>برای پیدا کردن انتخاب دلخواهتان</p>
-  </div>
+  <div class="heading"><small>EXPLORE LOTUS</small><h2>دسته‌بندی محصولات</h2><p>برای پیدا کردن انتخاب دلخواهتان</p></div>
   <div class="categories">
    <button class="category" data-category="bedding"><span>🛏️</span><h3>روتختی و لحاف</h3></button>
    <button class="category" data-category="sheets"><span>🧺</span><h3>ملحفه و روبالشی</h3></button>
@@ -239,64 +179,25 @@ footer{margin-top:50px;background:var(--ink);color:white;padding:34px 0 17px}
    <button class="category" data-category="accessories"><span>🕯️</span><h3>اکسسوری و کوسن</h3></button>
   </div>
  </section>
-
  <section class="section wrap" id="products">
-  <div class="heading">
-   <small>OUR COLLECTION</small><h2>محصولات لوتوس</h2>
-   <p>مجموعه‌ای از انتخاب‌های زیبا برای خانه شما</p>
-  </div>
-
+  <div class="heading"><small>OUR COLLECTION</small><h2>محصولات لوتوس</h2><p>مجموعه‌ای از انتخاب‌های زیبا برای خانه شما</p></div>
   <div class="toolbar">
    <input id="search" type="search" placeholder="جست‌وجوی محصول...">
-   <select id="categoryFilter">
-    <option value="all">همه دسته‌ها</option>
-    <option value="bedding">روتختی و لحاف</option>
-    <option value="sheets">ملحفه و روبالشی</option>
-    <option value="decor">دکور اتاق خواب</option>
-    <option value="accessories">اکسسوری و کوسن</option>
-    <option value="other">سایر محصولات</option>
-   </select>
-   <select id="sortFilter">
-    <option value="default">جدیدترین محصولات</option>
-    <option value="low">ارزان‌ترین</option>
-    <option value="high">گران‌ترین</option>
-   </select>
+   <select id="categoryFilter"><option value="all">همه دسته‌ها</option><option value="bedding">روتختی و لحاف</option><option value="sheets">ملحفه و روبالشی</option><option value="decor">دکور اتاق خواب</option><option value="accessories">اکسسوری و کوسن</option><option value="other">سایر محصولات</option></select>
+   <select id="sortFilter"><option value="default">جدیدترین محصولات</option><option value="low">ارزان‌ترین</option><option value="high">گران‌ترین</option></select>
   </div>
-
-  <div class="slider-tools">
-   <p>برای دیدن محصولات بیشتر، به طرفین حرکت کنید</p>
-   <div class="slider-buttons">
-    <button id="slideNext" aria-label="محصولات بعدی">←</button>
-    <button id="slidePrev" aria-label="محصولات قبلی">→</button>
-   </div>
-  </div>
-
-  <div id="productGrid" class="products" aria-label="محصولات فروشگاه">
-   <div class="loading">در حال دریافت محصولات...</div>
-  </div>
+  <div class="slider-tools"><p>برای دیدن محصولات بیشتر، به طرفین حرکت کنید</p><div class="slider-buttons"><button id="slideNext" aria-label="محصولات بعدی">←</button><button id="slidePrev" aria-label="محصولات قبلی">→</button></div></div>
+  <div id="productGrid" class="products" aria-label="محصولات فروشگاه"><div class="loading">در حال دریافت محصولات...</div></div>
  </section>
-
  <section class="wrap collection">
   <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1300&q=85" alt="دکور شیک خانه" loading="lazy">
-  <div class="collection-content">
-   <span class="eyebrow">LOTUS HOME</span>
-   <h2>خانه‌ای به زیبایی سلیقه شما</h2>
-   <p>با انتخاب جزئیات هماهنگ و زیبا، فضایی دلنشین برای استراحت و آرامش خود بسازید.</p>
-   <a href="#products" class="btn">دیدن مجموعه</a>
-  </div>
+  <div class="collection-content"><span class="eyebrow">LOTUS HOME</span><h2>خانه‌ای به زیبایی سلیقه شما</h2><p>با انتخاب جزئیات هماهنگ و زیبا، فضایی دلنشین برای استراحت و آرامش خود بسازید.</p><a href="#products" class="btn">دیدن مجموعه</a></div>
  </section>
-
  <section class="section wrap about" id="about">
-  <div>
-   <span class="eyebrow">ABOUT LOTUS</span>
-   <h2>داستان لوتوس</h2>
-   <p>لوتوس با الهام از زیبایی، آرامش و سادگی طراحی شده است؛ مجموعه‌ای برای انتخاب کالای خواب و اکسسوری‌های اتاق خواب، متناسب با خانه‌ای گرم و دلنشین.</p>
-   <a href="#products" class="btn">مشاهده محصولات</a>
-  </div>
+  <div><span class="eyebrow">ABOUT LOTUS</span><h2>داستان لوتوس</h2><p>لوتوس با الهام از زیبایی، آرامش و سادگی طراحی شده است؛ مجموعه‌ای برای انتخاب کالای خواب و اکسسوری‌های اتاق خواب، متناسب با خانه‌ای گرم و دلنشین.</p><a href="#products" class="btn">مشاهده محصولات</a></div>
   <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=80" alt="دکوراسیون داخلی" loading="lazy">
  </section>
 </main>
-
 <footer>
  <div class="wrap footergrid">
   <div><h2 class="brand-name">LOTUS</h2><p>زیبایی در جزئیات، آرامش در خانه.</p></div>
@@ -305,20 +206,14 @@ footer{margin-top:50px;background:var(--ink);color:white;padding:34px 0 17px}
  </div>
  <div class="wrap copyright">© <span id="year"></span> LOTUS</div>
 </footer>
-
 <div class="overlay" id="cartOverlay"></div>
 <aside class="drawer" id="cartPanel" aria-label="سبد خرید">
  <div class="drawerhead"><h3>سبد خرید</h3><button class="close" id="closeCart">بستن ×</button></div>
  <div id="cartItems" class="cartitems"></div>
- <div class="drawer-summary">
-  <p><span>جمع کل</span><b id="cartTotal">۰ تومان</b></p>
-  <button class="full" id="checkoutButton">ثبت سفارش</button>
- </div>
+ <div class="drawer-summary"><p><span>جمع کل</span><b id="cartTotal">۰ تومان</b></p><button class="full" id="checkoutButton">ثبت سفارش</button></div>
 </aside>
-
 <div class="modal" id="checkoutModal">
- <div class="modalbox">
-  <h2>ثبت سفارش</h2><p>لطفاً اطلاعات تحویل سفارش را وارد کنید.</p>
+ <div class="modalbox"><h2>ثبت سفارش</h2><p>لطفاً اطلاعات تحویل سفارش را وارد کنید.</p>
   <form id="orderForm">
    <div class="field"><label for="customerName">نام و نام خانوادگی</label><input id="customerName" required maxlength="100" autocomplete="name"></div>
    <div class="field"><label for="customerPhone">شماره تماس</label><input id="customerPhone" type="tel" required maxlength="30" autocomplete="tel"></div>
@@ -328,9 +223,7 @@ footer{margin-top:50px;background:var(--ink);color:white;padding:34px 0 17px}
   </form>
  </div>
 </div>
-
 <a class="adminlink" href="./admin.html">پنل مدیریت</a>
-
 <script>
 "use strict";
 
@@ -344,25 +237,20 @@ let autoSlideTimer = null;
 let userPausedSlider = false;
 
 const categoryAliases = {
- "bedding":"bedding","روتختی":"bedding","روتختی و لحاف":"bedding",
- "سرویس خواب":"bedding","لحاف و پتو":"bedding",
- "sheets":"sheets","ملحفه":"sheets","ملحفه و روبالشی":"sheets",
- "روبالشی":"sheets","بالش":"sheets",
+ "bedding":"bedding","روتختی":"bedding","روتختی و لحاف":"bedding","سرویس خواب":"bedding","لحاف و پتو":"bedding",
+ "sheets":"sheets","ملحفه":"sheets","ملحفه و روبالشی":"sheets","روبالشی":"sheets","بالش":"sheets",
  "decor":"decor","دکور اتاق خواب":"decor","پرده":"decor",
  "accessories":"accessories","اکسسوری و کوسن":"accessories","کوسن":"accessories"
 };
 const categoryLabels = {
- bedding:"روتختی و لحاف",sheets:"ملحفه و روبالشی",
- decor:"دکور اتاق خواب",accessories:"اکسسوری و کوسن",other:"سایر محصولات"
+ bedding:"روتختی و لحاف",sheets:"ملحفه و روبالشی",decor:"دکور اتاق خواب",accessories:"اکسسوری و کوسن",other:"سایر محصولات"
 };
 const fallbackImage = "https://placehold.co/600x650/f0e5d8/49382c?text=LOTUS";
 const money = n => new Intl.NumberFormat("fa-IR").format(Number(n || 0)) + " تومان";
 const byId = id => document.getElementById(id);
 
 function esc(value){
- return String(value ?? "").replace(/[&<>"']/g,c=>({
-  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
- })[c]);
+ return String(value ?? "").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 }
 function normalizedCategory(value){
  return categoryAliases[String(value || "").trim().toLowerCase()] || "other";
@@ -385,13 +273,10 @@ async function loadProducts(){
   renderCart();
   if(!products.length){
    grid.innerHTML = '<div class="empty">هنوز محصول فعالی ثبت نشده است. از پنل مدیریت محصولات را اضافه کنید و فعال بودن آن‌ها را بررسی کنید.</div>';
-  }else{
-   startAutoSlide();
-  }
+  }else startAutoSlide();
  }catch(error){
   console.error("LOTUS products error:",error);
-  grid.innerHTML = '<div class="empty">دریافت محصولات ناموفق بود: '+esc(error.message || String(error))+
-   '<br>اتصال Supabase، ستون active و مجوز خواندن جدول products را بررسی کنید.</div>';
+  grid.innerHTML = '<div class="empty">دریافت محصولات ناموفق بود: '+esc(error.message || String(error))+'<br>اتصال Supabase، ستون active و مجوز خواندن جدول products را بررسی کنید.</div>';
  }
 }
 
@@ -400,14 +285,12 @@ function renderProducts(){
  const query = byId("search").value.trim().toLowerCase();
  const category = byId("categoryFilter").value;
  const sort = byId("sortFilter").value;
-
  let list = products.filter(p=>{
   const text = [p.name,p.description,p.category].join(" ").toLowerCase();
   return (!query || text.includes(query)) && (category === "all" || p._category === category);
  });
  if(sort === "low") list.sort((a,b)=>Number(a.price)-Number(b.price));
  if(sort === "high") list.sort((a,b)=>Number(b.price)-Number(a.price));
-
  stopAutoSlide();
  if(!list.length){
   grid.innerHTML = '<div class="empty">محصولی برای نمایش پیدا نشد.</div>';
@@ -418,15 +301,9 @@ function renderProducts(){
   const label = categoryLabels[p._category] || p.category || "محصول لوتوس";
   return `<article class="product">
    <img class="product-image" src="${esc(productImage(p))}" alt="${esc(p.name)}" loading="lazy" onerror="this.onerror=null;this.src='${fallbackImage}'">
-   <div class="info">
-    <small>${esc(label)}</small>
-    <h3>${esc(p.name)}</h3>
-    <p>${esc(p.description || "")}</p>
+   <div class="info"><small>${esc(label)}</small><h3>${esc(p.name)}</h3><p>${esc(p.description || "")}</p>
     <div class="stock ${stock > 0 ? "" : "out"}">${stock > 0 ? "موجودی: "+new Intl.NumberFormat("fa-IR").format(stock) : "ناموجود"}</div>
-    <div class="productfoot">
-     <span class="price">${money(p.price)}</span>
-     <button class="add" data-add="${esc(p.id)}" ${stock <= 0 ? "disabled" : ""}>${stock > 0 ? "افزودن به سبد" : "ناموجود"}</button>
-    </div>
+    <div class="productfoot"><span class="price">${money(p.price)}</span><button class="add" data-add="${esc(p.id)}" ${stock <= 0 ? "disabled" : ""}>${stock > 0 ? "افزودن به سبد" : "ناموجود"}</button></div>
    </div>
   </article>`;
  }).join("");
@@ -442,45 +319,35 @@ function focusSearch(){
  byId("products").scrollIntoView({behavior:"smooth"});
  setTimeout(()=>byId("search").focus({preventScroll:true}),250);
 }
-
-/* حرکت خودکار اسلایدر محصولات */
 function stopAutoSlide(){
  if(autoSlideTimer){clearInterval(autoSlideTimer);autoSlideTimer=null;}
 }
 function startAutoSlide(){
  stopAutoSlide();
  if(userPausedSlider || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
- if(byId("productGrid").scrollWidth <= byId("productGrid").clientWidth + 5) return;
+ const slider = byId("productGrid");
+ if(!slider || slider.scrollWidth <= slider.clientWidth + 5) return;
  autoSlideTimer = setInterval(()=>{
-  const slider = byId("productGrid");
-  if(userPausedSlider || slider.scrollWidth <= slider.clientWidth + 5) return;
+  if(userPausedSlider || !slider.querySelector(".product")) return;
   const card = slider.querySelector(".product");
-  if(!card) return;
   const step = card.getBoundingClientRect().width + parseFloat(getComputedStyle(slider).gap || 0);
   const max = slider.scrollWidth - slider.clientWidth;
-  if(Math.abs(slider.scrollLeft) >= max - 8 || slider.scrollLeft >= max - 8){
-   slider.scrollTo({left:0,behavior:"smooth"});
-  }else{
-   slider.scrollBy({left:-step,behavior:"smooth"});
-  }
- },2800);
+  const current = Math.abs(slider.scrollLeft);
+  if(current >= max - 8) slider.scrollTo({left:0,behavior:"smooth"});
+  else slider.scrollBy({left:-step,behavior:"smooth"});
+ },3000);
 }
-function pauseSlider(){
- userPausedSlider = true;
- stopAutoSlide();
-}
-function resumeSlider(){
- userPausedSlider = false;
- startAutoSlide();
-}
+function pauseSlider(){userPausedSlider=true;stopAutoSlide();}
+function resumeSlider(){userPausedSlider=false;startAutoSlide();}
+
 const productSlider = byId("productGrid");
 productSlider.addEventListener("pointerdown",pauseSlider);
-productSlider.addEventListener("touchstart",pauseSlider,{passive:true});
 productSlider.addEventListener("mouseenter",pauseSlider);
 productSlider.addEventListener("focusin",pauseSlider);
 productSlider.addEventListener("mouseleave",resumeSlider);
 productSlider.addEventListener("touchend",()=>setTimeout(resumeSlider,2500),{passive:true});
 productSlider.addEventListener("focusout",()=>setTimeout(resumeSlider,1500));
+
 byId("slideNext").addEventListener("click",()=>{
  pauseSlider();
  const card=productSlider.querySelector(".product");
@@ -494,9 +361,7 @@ byId("slidePrev").addEventListener("click",()=>{
 byId("search").addEventListener("input",renderProducts);
 byId("categoryFilter").addEventListener("change",renderProducts);
 byId("sortFilter").addEventListener("change",renderProducts);
-document.querySelectorAll("[data-category]").forEach(button=>{
- button.addEventListener("click",()=>chooseCategory(button.dataset.category));
-});
+document.querySelectorAll("[data-category]").forEach(button=>button.addEventListener("click",()=>chooseCategory(button.dataset.category)));
 byId("searchButton").addEventListener("click",focusSearch);
 
 function saveCart(){
@@ -504,16 +369,16 @@ function saveCart(){
  catch(error){console.warn("Could not save cart:",error);}
 }
 try{
- const stored = JSON.parse(localStorage.getItem("lotusCart") || "[]");
+ const stored=JSON.parse(localStorage.getItem("lotusCart") || "[]");
  if(Array.isArray(stored)){
-  cart = stored.filter(i=>i && i.id!==undefined && Number.isFinite(Number(i.qty)) && Number(i.qty)>0)
+  cart=stored.filter(i=>i && i.id!==undefined && Number.isFinite(Number(i.qty)) && Number(i.qty)>0)
    .map(i=>({id:i.id,qty:Math.floor(Number(i.qty))}));
  }
 }catch(error){cart=[];}
 
 function addToCart(id){
  const product=products.find(p=>String(p.id)===String(id));
- if(!product) return;
+ if(!product)return;
  const stock=Math.max(0,Number(product.stock)||0);
  if(stock<1){alert("این محصول موجود نیست.");return;}
  const item=cart.find(i=>String(i.id)===String(id));
@@ -534,10 +399,7 @@ function changeQty(id,delta){
  else item.qty=next;
  saveCart();renderCart();
 }
-function removeItem(id){
- cart=cart.filter(i=>String(i.id)!==String(id));
- saveCart();renderCart();
-}
+function removeItem(id){cart=cart.filter(i=>String(i.id)!==String(id));saveCart();renderCart();}
 function validCartItems(){
  return cart.map(i=>{
   const product=products.find(p=>String(p.id)===String(i.id));
@@ -561,14 +423,11 @@ function renderCart(){
  if(!valid.length){box.innerHTML='<div class="empty">سبد خرید خالی است.</div>';return;}
  box.innerHTML=valid.map(i=>`<div class="cartitem">
   <img src="${esc(productImage(i.product))}" alt="${esc(i.product.name)}">
-  <div><h4>${esc(i.product.name)}</h4><p>${money(i.product.price)}</p>
-   <div class="qty">
-    <button data-qty="${esc(i.id)}" data-delta="1" aria-label="افزایش تعداد">+</button>
-    <span>${new Intl.NumberFormat("fa-IR").format(i.qty)}</span>
-    <button data-qty="${esc(i.id)}" data-delta="-1" aria-label="کاهش تعداد">−</button>
-   </div>
-  </div>
-  <button class="close" data-remove="${esc(i.id)}">حذف</button>
+  <div><h4>${esc(i.product.name)}</h4><p>${money(i.product.price)}</p><div class="qty">
+   <button data-qty="${esc(i.id)}" data-delta="1" aria-label="افزایش تعداد">+</button>
+   <span>${new Intl.NumberFormat("fa-IR").format(i.qty)}</span>
+   <button data-qty="${esc(i.id)}" data-delta="-1" aria-label="کاهش تعداد">−</button>
+  </div></div><button class="close" data-remove="${esc(i.id)}">حذف</button>
  </div>`).join("");
 }
 document.addEventListener("click",event=>{
@@ -580,32 +439,21 @@ document.addEventListener("click",event=>{
  if(remove)removeItem(remove.dataset.remove);
 });
 
-function openCart(){
- byId("cartPanel").classList.add("open");
- byId("cartOverlay").classList.add("open");
-}
-function closeCart(){
- byId("cartPanel").classList.remove("open");
- byId("cartOverlay").classList.remove("open");
-}
+function openCart(){byId("cartPanel").classList.add("open");byId("cartOverlay").classList.add("open");}
+function closeCart(){byId("cartPanel").classList.remove("open");byId("cartOverlay").classList.remove("open");}
 byId("cartButton").addEventListener("click",openCart);
 byId("closeCart").addEventListener("click",closeCart);
 byId("cartOverlay").addEventListener("click",closeCart);
 
 function startCheckout(){
  if(!validCartItems().length){alert("سبد خرید خالی است یا موجودی یکی از محصولات تغییر کرده است.");return;}
- closeCart();
- byId("checkoutModal").classList.add("open");
+ closeCart();byId("checkoutModal").classList.add("open");
 }
 function closeCheckout(){byId("checkoutModal").classList.remove("open");}
 byId("checkoutButton").addEventListener("click",startCheckout);
 byId("cancelCheckout").addEventListener("click",closeCheckout);
-byId("checkoutModal").addEventListener("click",event=>{
- if(event.target===byId("checkoutModal"))closeCheckout();
-});
-document.addEventListener("keydown",event=>{
- if(event.key==="Escape"){closeCart();closeCheckout();}
-});
+byId("checkoutModal").addEventListener("click",event=>{if(event.target===byId("checkoutModal"))closeCheckout();});
+document.addEventListener("keydown",event=>{if(event.key==="Escape"){closeCart();closeCheckout();}});
 
 byId("orderForm").addEventListener("submit",async function(event){
  event.preventDefault();
@@ -615,13 +463,9 @@ byId("orderForm").addEventListener("submit",async function(event){
  const address=byId("customerAddress").value.trim();
  const note=byId("customerNote").value.trim();
  const valid=validCartItems();
-
  if(!name || !phone || !address){alert("لطفاً نام، شماره تماس و آدرس را کامل کنید.");return;}
  if(!valid.length){alert("سبد خرید خالی است یا موجودی محصولات تغییر کرده است. صفحه را تازه‌سازی کنید.");return;}
-
- const items=valid.map(i=>({
-  product_id:i.product.id,name:i.product.name,quantity:i.qty,price:Number(i.product.price)
- }));
+ const items=valid.map(i=>({product_id:i.product.id,name:i.product.name,quantity:i.qty,price:Number(i.product.price)}));
  const total=items.reduce((sum,i)=>sum+i.price*i.quantity,0);
  submit.disabled=true;submit.textContent="در حال ثبت...";
  try{
@@ -642,9 +486,7 @@ byId("orderForm").addEventListener("submit",async function(event){
 
 byId("year").textContent=new Date().getFullYear();
 loadProducts();
-window.addEventListener("resize",()=>{
- if(!userPausedSlider)startAutoSlide();
-});
+window.addEventListener("resize",()=>{if(!userPausedSlider)startAutoSlide();});
 </script>
 </body>
 </html>
